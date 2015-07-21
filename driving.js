@@ -7,34 +7,20 @@ var timer = function(){
 	
 	var text = $('#s').text();
 
-
-	// type="text/javascript"
-	// clock.setTime(00);
-	// clock.stop(function() { 
-		
-	// });
-	// var clock = $('.clock').FlipClock(00);
-
-
 	if(text === "Start Driving!") {
 		$('#s').text('Stop Driving!');
 		$('#Result').text('');
 		//start the timer
 		//call a future function
-<<<<<<< HEAD
 		//clock.setTime(00);
 		clock.start();
 
-=======
-		(#startClock);
->>>>>>> origin/master
 	}
 	
-	else if(text === "Stop Driving!" id) {
+	else if(text === "Stop Driving!") {
 		$('#s').text('Start Driving!');
 		//$('#Result').text('You drove ' + hours + ' hr ' + min + ' min ' + sec + ' sec! ');
 		//stop the timer, call a stop function
-<<<<<<< HEAD
 		clock.stop();
 
 		var getTime = clock.getTime();
@@ -46,11 +32,6 @@ var timer = function(){
 
 		$('#Result').text(hours + " hr " + minutes + " min " + seconds + " sec ");
 		
-=======
-		// var time = clock.getTime(); 
-		// console.log(time);
-		// clock.setTime(00);
->>>>>>> origin/master
 	}
 }
 
