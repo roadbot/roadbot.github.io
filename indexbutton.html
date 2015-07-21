@@ -7,13 +7,26 @@
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script src = "driving.js"></script>
+
+
 </head> 
 <body> 
 
-<div data-role="page">
+
+
+
+
+<div data-role="page" id = "pageone">
 
 	<div data-role="header">
-		<h1>Welcome</h1>
+		<h1><font size="6">Timer </font></h1>
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#pageone">Timer</a></li>
+				<li><a href="#pagetwo">Your Stats</a></li>
+			</ul>
+		</div><!-- /navbar -->
 	</div><!-- /header -->
 
 	<div data-role="content">
@@ -32,6 +45,53 @@
 	</div><!-- /content -->
 
 </div><!-- /page -->
+
+<div data-role="page" id = "pagetwo">
+
+	<div data-role="header">
+		<h1><font size="5">Your Stats!</font></h1>
+
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#pageone">Timer</a></li>
+				<li><a href="#pagetwo">Your Stats</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /header -->
+
+	<div data-role="content">
+
+		<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: </font>
+		</div> 
+
+		<div id = "totalTime" align = "center" style="PADDING-TOP: 25px" > 
+			<script>  
+				document.getElementById('totalTime').innerHTML =hours + ' hr ' + min + ' min ' + sec + ' sec ' ; 
+			</script>
+		
+		</div>
+
+		<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: </font>
+		</div>
+
+		<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" > 
+			<script>  
+				var hoursleft = 50 - hours;
+				var minleft = 60 - min;
+				var secleft = 60 - sec;
+				document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
+			</script>
+		
+		</div> 
+
+
+
+
+
+	</div>
+
+
+</div> <!-- pagetwo-->
 
 </body>
 </html>
