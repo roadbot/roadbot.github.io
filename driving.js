@@ -1,6 +1,6 @@
-var hours = 25 ;
-var min = 6;
-var sec = 34;
+// var hours = 25 ;
+// var min = 6;
+// var sec = 34;
 
 
 var timer = function(){
@@ -12,7 +12,7 @@ var timer = function(){
 		$('#Result').text('');
 		//start the timer
 		//call a future function
-		//clock.setTime(00);
+		clock.setTime(00);
 		clock.start();
 
 	}
