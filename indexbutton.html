@@ -1,12 +1,16 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-	<title>My Page</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-	<script src = "driving.js"></script>
+			<title>My Page</title> 
+		<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="FlipClock-master/compiled/flipclock.js"></script>
+		<script src="FlipClock-master/compiled/flipclock.min.js"></script>
+		<script src = "driving.js"> </script> 
 
 
 </head> 
@@ -32,12 +36,24 @@
 	<div data-role="content">
 	
 	
+
 	
 
 		<button  onclick = "timer()" ><p id = "s">Start Driving!</p></button>
 
+		<div class="clock" style="PADDING-LEFT: 700px" ></div>
 
-		<div id = "Result" align = "center" style="PADDING-TOP: 25px">
+			<script type="text/javascript">
+				
+			var clock = $('.clock').FlipClock(00);
+
+			</script>
+
+
+		<p> </p>
+
+
+		<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
 			
 		</div> 
 

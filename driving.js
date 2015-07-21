@@ -25,19 +25,14 @@ var timer = function(){
 
 
 
-// var clock = $('.your-clock').FlipClock({
-// 	//options
+var clock = $('.your-clock').FlipClock({
+	//options
 	
-// });
+});
 
-// clock.setTime(3600);
+clock.setTime(3600);
 
-// clock.start(function() {
-// 		// this (optional) callback will fire each time the clock flips
-// 	});
-
-// #clock{
-// 	autoStart = "false";
-
-// }
+clock.start(function() {
+		// this (optional) callback will fire each time the clock flips
+	});
 
