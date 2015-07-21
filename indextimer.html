@@ -1,26 +1,54 @@
 <!DOCTYPE html> 
 <html> 
-<head> 
-	<title>My Page</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-</head> 
-<body> 
+	<head> 
+		<title>My Page</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+		<script>
+			var display_time = function() {
 
-<div data-role="page">
+				var d = new Date();
+				var hour = 00;
+				var min = 00;
+				var sec = 0;
+				var count = 0;
+				while(sec < 60) {
+					
+					setTimeout(addOne(sec), 5000);
+					sec++;
+				}
+			}
+				
+			var addOne = function(num) {
+				$("#print").text(num);
+			}
+		</script>	
+	</head>
+	<body>
 
-	<div data-role="header">
-		<h1>My Title</h1>
-	</div><!-- /header -->
-
-	<div data-role="content">	
-		<p>Hello world</p>		
-	</div><!-- /content -->
-
-</div><!-- /page -->
-
-</body>
+		<button onclick="display_time()">start driving</button>
+		<p id="print"></p>
+		
+	</body>
 </html>
 
+ <!--script>
+// function display_time(){
+// 	var d = new Date();
+// 	var m = d.getUTCMinutes();
+// 	var s = d.getUTCSeconds();
+// 	var h = d.getHours();
+// 	document.getElementById("time").innerHTML = h + " : " + m + " : " + s;
+// }
+// </script-->
+
+<!-- 
+<script>
+function refresh_time(){
+$(document).ready(function(){
+	setInterval(function(){display_time()},1000);
+});
+}
+</script> -->
