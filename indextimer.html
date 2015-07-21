@@ -14,33 +14,20 @@
 		
 	</head>
 	<body>
+
 		<h1>Timer</h1>
-		
+
+<button onclick="clock.start()">start timer</button>
+
 
 <div class="clock"></div>
 
 			<script type="text/javascript">
-				var clock = $('.clock').FlipClock(00);
+				clock.start(function() {
+				});
+
+			var clock = $('.clock').FlipClock(00);
+
 			</script>
-			
 	</body>
 </html>
-
- <!--script>
-// function display_time(){
-// 	var d = new Date();
-// 	var m = d.getUTCMinutes();
-// 	var s = d.getUTCSeconds();
-// 	var h = d.getHours();
-// 	document.getElementById("time").innerHTML = h + " : " + m + " : " + s;
-// }
-// </script-->
-
-<!-- 
-<script>
-function refresh_time(){
-$(document).ready(function(){
-	setInterval(function(){display_time()},1000);
-});
-}
-</script> -->
