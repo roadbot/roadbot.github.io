@@ -12,12 +12,18 @@ var timer = function(){
 		$('#Result').text('');
 		//start the timer
 		//call a future function
+		clock.start();
 	}
 	
 	else if(text === "Stop Driving!") {
 		$('#s').text('Start Driving!');
-		$('#Result').text('You drove ' + hours + ' hr ' + min + ' min ' + sec + ' sec! ');
+		//$('#Result').text('You drove ' + hours + ' hr ' + min + ' min ' + sec + ' sec! ');
 		//stop the timer, call a stop function
+		clock.stop();
+		var getTime = clock.getTime();
+		$('#Result').text(getTime);
+		clock.setTime(00);
+
 	}
 }
 
