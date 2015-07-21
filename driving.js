@@ -28,3 +28,8 @@ clock.setTime(3600);
 clock.start(function() {
 		// this (optional) callback will fire each time the clock flips
 	});
+
+#clock{
+	autoStart = "false";
+
+}
