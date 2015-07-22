@@ -34,38 +34,29 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a href="#pageone">Timer</a></li>
-				<li><a href="#pagetwo">Your Stats</a></li>
+				<li><a href="#pageone" onclick="update()">Timer</a></li>
+				<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
 			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /header -->
+		</div>
+	</div>
 
 	<div data-role="content">
 	
-	
-
-	
-
 		<button  onclick = "timer()"  ><p id = "s">Start Driving!</p></button>
 
 		<div class="clock" id = "time" >
 
 			<script type="text/javascript">
 				
-				// var clock = $('.clock').FlipClock({
-				// 	autoStart: false
-				// });
-				var clock = $('.clock').FlipClock(5000);
+				 var clock = $('.clock').FlipClock({
+					autoStart: false
+				 });
 
 
 			</script>
 
 		</div>
 
-			
-
-
-		
 
 		<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
 			
@@ -83,20 +74,20 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a href="#pageone">Timer</a></li>
-				<li><a href="#pagetwo">Your Stats</a></li>
+				<li><a href="#pageone" onclick="update()">Timer</a></li>
+				<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /header -->
 
 	<div data-role="content">
 
-		<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: </font>
+		<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: <span id="lasttime"></span></font>
 		</div> 
 
 		<div id = "totalTime" align = "center" style="PADDING-TOP: 25px" > 
 			<script>  
-				document.getElementById('totalTime').innerHTML =hours + ' hr ' + min + ' min ' + sec + ' sec ' ; 
+				//document.getElementById('totalTime').innerML =hours + ' hr ' + minutes + ' min ' + seconds + ' sec ' ; 
 			</script>
 		
 		</div>
@@ -106,15 +97,18 @@
 
 		<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" > 
 			<script>  
-				var hoursleft = 50 - hours;
-				var minleft = 60 - min;
-				var secleft = 60 - sec;
-				document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
+				//var hoursleft = 50 - hours;
+				//var minleft = 60 - minutes;
+				//var secleft = 60 - seconds;
+				//document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
 			</script>
+
+
 		
 		</div> 
 
 
+		<button  onclick = "reset()">Reset</button>
 
 
 
