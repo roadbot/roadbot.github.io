@@ -2,34 +2,21 @@
 <html> 
 	<head> 
 		<title>My Page</title> 
+		<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-		<script>
-			var display_time = function() {
-
-				var d = new Date();
-				var hour = 00;
-				var min = 00;
-				var sec = 0;
-				var count = 0;
-				while(sec < 60) {
-					
-					setTimeout(addOne(sec), 5000);
-					sec++;
-				}
-			}
-				
-			var addOne = function(num) {
-				$("#print").text(num);
-			}
-		</script>	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="FlipClock-master/compiled/flipclock.js"></script>
+		<script src="FlipClock-master/compiled/flipclock.min.js"></script>
+		<script src = "driving.js"> </script> 
+		
 	</head>
 	<body>
+		<h1>this should work</h1>
+		<div class="your-clock"></div>
 
-		<button onclick="display_time()">start driving</button>
-		<p id="print"></p>
 		
 	</body>
 </html>
