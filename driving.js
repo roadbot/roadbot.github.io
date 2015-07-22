@@ -27,7 +27,7 @@ var timer = function(){
 		var hours = Math.floor(getTime / 3600);
 		//var h = getTime - hours * 3600;
 		var minutes = Math.floor(getTime / 60) - (hours*60);
-		var seconds = (getTime - minutes * 60) - 3601;
+		var seconds = (getTime - minutes * 60) - (hours*3600) - 1;
 	
 
 		$('#Result').text(hours + " hr " + minutes + " min " + seconds + " sec ");
