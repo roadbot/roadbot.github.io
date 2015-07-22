@@ -3,32 +3,46 @@ $(document).ready(function() {
 		localStorage.setItem("totalHours", 0);
 		localStorage.setItem("totalMinutes",0);
 		localStorage.setItem("totalSeconds", 0);
-	}
-
-	else {
+	}else {
 		update();
 	}
 });
 
+$('<div id="__msg_overlay">').css({
+      "width" : "100%"
+    , "height" : "100%"
+    , "background" : "#000"
+    , "position" : "fixed"
+    , "top" : "0"
+    , "left" : "0"
+    , "zIndex" : "50"
+    , "MsFilter" : "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"
+    , "filter" : "alpha(opacity=60)"
+    , "MozOpacity" : 0.6
+    , "KhtmlOpacity" : 0.6
+    , "opacity" : 0.6
+
+}).appendTo(document.body);
+
 var timer = function(){
-	
+
 	var text = $('#s').text();
 
 	if(text === "Start Driving!") {
 		$('#s').text('Stop Driving!');
 		$('#Result').text('');
-		//start the timer
-		//call a future function
-		//clock.setTime(00);
+
+		dim();
 		clock.start();
 
 	}
 	
 	else if(text === "Stop Driving!") {
 		$('#s').text('Start Driving!');
-		//$('#Result').text('You drove ' + hours + ' hr ' + min + ' min ' + sec + ' sec! ');
-		//stop the timer, call a stop function
+
 		clock.stop();
+
+		normal();
 
 		var getTime = Number(clock.getTime());
 		alert(getTime);
@@ -38,7 +52,7 @@ var timer = function(){
 		var seconds = Number((getTime - minutes * 60) - (hours*3600) - 1);
 	
 
-		$('#Result').text(hours + " hr " + minutes + " min " + seconds + " sec ");
+		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
 		add(hours, minutes, seconds);
 	}
@@ -121,6 +135,29 @@ var reset = function() {
 	update();
 }
 
+var dim = function() {
+	//$(window).load(function(e){
+	  //$('#trigger').on('click',function(e){
+		
+		$("#pageone").css("opacity",0.4).fadeIn(300, function () {            
+	     	$('#red').css({'position':'aboslute','z-index':9999});
+	     });
+
+	// $('#trigger').on('click', function () {
+	//     $('#overlay, #overlay-back').fadeIn(500);
+	// });
+
+
+	   //e.preventDefault();
+	   //});
+	//});
+}
+
+var normal = function(){
+	$("#pageone").css("opacity",1).fadeIn(300, function () {            
+	     	//$('#red').css({'position':'aboslute','z-index':9999});
+	});
+}
 
 var clock = $('.your-clock').FlipClock({
 	//options
