@@ -3,6 +3,10 @@
 // var sec = 34;
 
 
+var totalHours =0;
+var totalMinutes = 0;
+var totalSeconds = 0;
+
 var timer = function(){
 	
 	var text = $('#s').text();
@@ -28,7 +32,13 @@ var timer = function(){
 		//var h = getTime - hours * 3600;
 		var minutes = Math.floor(getTime / 60) - (hours*60);
 		var seconds = (getTime - minutes * 60) - (hours*3600) - 1;
-	
+		
+		var totalHours = totalHours + hours; 
+		var totalMinutes = totalMinutes + minutes;
+		var totalSeconds = totalSeconds + seconds;
+		
+
+
 
 		$('#Result').text(hours + " hr " + minutes + " min " + seconds + " sec ");
 		
@@ -36,9 +46,9 @@ var timer = function(){
 }
 
 
-var hours = 0 ;
-var minutes = 0;
-var seconds = 0;
+// var hours = 0 ;
+// var minutes = 0;
+// var seconds = 0;
 
 
 
