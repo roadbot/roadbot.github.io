@@ -23,49 +23,41 @@
 </head> 
 <body> 
 
-
-
-
-
 <div data-role="page" id = "pageone">
 
-	<div data-role="header">
-		<h1><font size="6">Timer </font></h1>
+	<div id="dimmer">
+		<div data-role="header">
+			<h1><font size="6">Timer </font></h1>
 
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#pageone">Timer</a></li>
-				<li><a href="#pagetwo">Your Stats</a></li>
-			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /header -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" onclick="update()" onclick="refresh()">Timer</a></li>
+					<li><a href="#pagetwo" onclick="update()" onclick="refresh">Your Stats</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /header -->
+
+	</div>
+
 
 	<div data-role="content">
-	
-	
 
-	
-
-		<button  onclick = "timer()"  ><p id = "s">Start Driving!</p></button>
+		<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button>
 
 		<div class="clock" id = "time" >
 
 			<script type="text/javascript">
 				
-				var clock = $('.clock').FlipClock({
+				 var clock = $('.clock').FlipClock({
 					autoStart: false
-				});
-
-
+				 });
 
 			</script>
 
 		</div>
-
 			
-
-
-		
+<!-- <div id="overlay-back"></div>
+<div id="overlay"></div>  -->
 
 		<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
 			
@@ -83,21 +75,24 @@
 
 		<div data-role="navbar">
 			<ul>
-				<li><a href="#pageone">Timer</a></li>
-				<li><a href="#pagetwo">Your Stats</a></li>
+				<li><a href="#pageone" onclick="update()">Timer</a></li>
+				<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /header -->
 
 	<div data-role="content">
 
-		<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: </font>
+		<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: <span id="lasttime"></span></font>
 		</div> 
 
 		<div id = "totalTime" align = "center" style="PADDING-TOP: 25px" > 
 			<script>  
-				document.getElementById('totalTime').innerHTML =totalHours + ' hr ' + totalMinutes + ' min ' + totalSeconds + ' sec ' ; 
-			</script> 	
+
+				document.getElementById('totalTime').innerHTML =hours + ' hr ' + minutes + ' min ' + seconds + ' sec ' ; 
+
+			</script>
+
 		</div>
 
 		<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: </font>
@@ -105,6 +100,7 @@
 
 		<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" "PADDING-BOTTOM: 100px"> 
 			<script>  
+
 				var hoursleft = 0;
 				var minleft = 0;
 				var secleft = 0;
@@ -150,13 +146,12 @@
 
 		</div> 
 
-		<button  onclick = "averageHours()" >Click here to check out how many hours you should drive a day to finish your hours in 6 months!<button>
+		<button  onclick = "averageHours()" >Click here to check out how many hours you should drive a day to finish your hours in 6 months!</button>
 		
 		<div id = "averageHours" ></div> 
 
 
-
-
+	<button  onclick = "reset()">Reset</button>
 
 	</div>
 
