@@ -122,13 +122,13 @@
 				}
 				else if(seconds == 0){
 					hoursleft = 49 - hours;
-					minleft = 59 - minutes;
+					minleft = 60 - minutes;
 					secleft = 0;
 				}
 				else if(hours != 0 && minutes != 0 && seconds != 0){
-						hoursleft = 49 - hours;
-						minleft = 59 - minutes;
-						secleft = 60 - seconds;
+					hoursleft = 49 - hours;
+					minleft = 59 - minutes;
+					secleft = 60 - seconds;
 				}
 				document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
 			</script>
