@@ -1,165 +1,206 @@
 <!DOCTYPE html> 
 <html> 
-<head> 
-			<title>My Page</title> 
-		<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-		<script src="FlipClock-master/compiled/flipclock.js"></script>
-		<script src="FlipClock-master/compiled/flipclock.min.js"></script>
-		<script src = "driving.js"> </script>
+	<head> 
+				<title>My Page</title> 
+			<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1"> 
+			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+			<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script src="FlipClock-master/compiled/flipclock.js"></script>
+			<script src="FlipClock-master/compiled/flipclock.min.js"></script>
+			<script src = "driving.js"> </script>
 
-		<style>
-			#time {
-				PADDING-TOP: 50px;
-				width: 100%;
-			}
-			#pageone {
-				background-image: url("grey.jpg")
-			}
-		</style> 
-
-
-</head> 
-<body> 
-
-<div data-role="page" id = "pageone">
-
-	<div id="dimmer">
-		<div data-role="header">
-			<h1><font size="6">Timer </font></h1>
-
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#pageone" onclick="update()" onclick="refresh()">Timer</a></li>
-					<li><a href="#pagetwo" onclick="update()" onclick="refresh">Your Stats</a></li>
-				</ul>
-			</div><!-- /navbar -->
-		</div><!-- /header -->
-
-	</div>
-
-
-	<div data-role="content">
-
-		<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button>
-
-		<div class="clock" id = "time" >
-
-			<script type="text/javascript">
-				
-				 var clock = $('.clock').FlipClock({
-					autoStart: false
-				 });
-
-			</script>
-
-		</div>
-			
-<!-- <div id="overlay-back"></div>
-<div id="overlay"></div>  -->
-
-		<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
-			
-		</div> 
-
-		
-	</div><!-- /content -->
-
-</div><!-- /page -->
-
-<div data-role="page" id = "pagetwo">
-
-	<div data-role="header">
-		<h1><font size="5">Your Stats!</font></h1>
-
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#pageone" onclick="update()">Timer</a></li>
-				<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
-			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /header -->
-
-	<div data-role="content">
-
-		<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: <span id="lasttime"></span></font>
-		</div> 
-
-		<div id = "totalTime" align = "center" style="PADDING-TOP: 25px" > 
-			<script>  
-
-				document.getElementById('totalTime').innerHTML =hours + ' hr ' + minutes + ' min ' + seconds + ' sec ' ; 
-
-			</script>
-
-		</div>
-
-		<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: </font>
-		</div>
-
-		<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" "PADDING-BOTTOM: 100px"> 
-			<script>  
-
-				var hoursleft = 0;
-				var minleft = 0;
-				var secleft = 0;
-				if(hours == 0 && minutes == 0 && seconds == 0){
-					hoursleft = 50;
-					minleft = 0;
-					secleft = 0;
+			<style>
+				#time {
+					PADDING-TOP: 50px;
+					width: 100%;
 				}
-				else if (minutes == 0 && seconds == 0){
-					hoursleft = 50 - hours;
-					minleft = 0;
-					secleft = 0;
+				#pageone {
+					background-image: url("grey.jpg")
+				}
+			</style> 
+
+
+	</head> 
+
+	<body> 
+
+		<div data-role="page" id = "pageone">
+
+			<div id="dimmer">
+				<div data-role="header">
+					<h1><font size="6">Timer </font></h1>
+
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#pageone" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
+							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
+						</ul>
+					</div><!-- /navbar -->
+				</div><!-- /header -->
+
+			</div>
+
+
+			<div data-role="content">
+
+				<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button>
+
+				<div class="clock" id = "time" >
+
+					<script type="text/javascript">
+						
+						 var clock = $('.clock').FlipClock({
+							autoStart: false
+						 });
+
+					</script>
+
+				</div>
+
+
+
+				<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
 					
-				}
-				else if(seconds == 0){
-					hoursleft = 49 - hours;
-					minleft = 60 - minutes;
-					secleft = 0;
-				}
-				else if(hours != 0 && minutes != 0 && seconds != 0){
-					hoursleft = 49 - hours;
-					minleft = 59 - minutes;
-					secleft = 60 - seconds;
-				}
+				</div> 
+
+				
+			</div><!-- /content -->
+
+		</div><!-- /page -->
+
+		<div data-role="page" id = "pagetwo">
+
+			<div data-role="header">
+				<h1><font size="5">Your Stats!</font></h1>
+
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" onclick="update()">Timer</a></li>
+						<li><a href="#pagetwo" onclick="update()" class="ui-btn-active ui-state-persist">Your Stats </a></li>
+						<li><a href="#pagefour" onclick="update()"> Set Start Date</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /header -->
+
+			<div data-role="content">
+
+				<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: <span id="lasttime"></span></font>
+				</div> 
+
+				<div id = "totalTime" align = "center" style="PADDING-TOP: 25px" > 
+					<script>  
+
+						//document.getElementById('totalTime').inhours + ' hr ' + minutes + ' min ' + seconds + ' sec ' ; 
+
+					</script>
+
+				</div>
+
+				<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: </font>
+				</div>
+
+				<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" "PADDING-BOTTOM: 100px"> 
+					<script>  
+						// var hours = localStorage.getItem("total")
+						// var hoursleft = 0;
+						// var minleft = 0;
+						// var secleft = 0;
+						// if(hours == 0 && minutes == 0 && seconds == 0){
+						// 	hoursleft = 50;
+						// 	minleft = 0;
+						// 	secleft = 0;
+						// }
+						// else if (minutes == 0 && seconds == 0){
+						// 	hoursleft = 50 - hours;
+						// 	minleft = 0;
+						// 	secleft = 0;
+							
+						// }
+						// else if(seconds == 0){
+						// 	hoursleft = 49 - hours;
+						// 	minleft = 60 - minutes;
+						// 	secleft = 0;
+						// }
+						// else if(hours != 0 && minutes != 0 && seconds != 0){
+						// 	hoursleft = 49 - hours;
+						// 	minleft = 59 - minutes;
+						// 	secleft = 60 - seconds;
+						// }
 
 
-				document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
+						// document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
 
 
 
-			</script>
+					</script>
+				</div>
 
 
+
+				
+
+				<!-- <button  onclick = "averageHours()" >Click here to check out how many hours you should drive a day to finish your hours in 6 months!</button> -->
+				
+				<h3>Average hours a day left</h3>
+				<div id = "averageHours" ></div> 
+
+
+			
+				<button  onclick = "reset()">Reset All Data</button>
+			</div>
+
+
+		</div> <!-- pagetwo-->
+
+
+		<div data-role="page" id = "pagefour">
+
+			<div data-role="header">
+				<h1><font size="5">Your Stats!</font></h1>
+
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" onclick="update()">Timer</a></li>
+						<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
+						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Set Start Date</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /header -->
+
+
+			<div data-role="content">
 		
+				<div id = "date" >
+					<h2>Enter your First Day of Driving Practice</h2>
+					<label for="basic">First Day Driving:</label>
+				    <input type="text" name="name" id="day" style="width: 100px;" value=""  />
 
-		<div id = "date" >
-
-			<form action="demo_form.asp">
-				  First Day: <input type="text" name="day" id = "firstDay" style="width: 100px;" ><br>
-				  First Month: <input type="text" name="month" id = "firstMonth" style="width: 100px;" ><br>
-				  <button  onclick = "dateEntry()"  >Enter</button>
-			</form>
-
-		</div> 
-
-		<button  onclick = "averageHours()" >Click here to check out how many hours you should drive a day to finish your hours in 6 months!</button>
-		
-		<div id = "averageHours" ></div> 
+				    <label for="basic">First Month Started Driving:</label>
+				    <input type="text" name="name" id="month" value="" style="width: 100px;"  />
 
 
-	<button  onclick = "reset()">Reset</button>
 
-	</div>
+						  <!-- First Day Driving: <input type="text" name="day" id = "firstDay" style="width: 100px;" ><br> -->
+						  <!-- First Month Started Driving: <input type="text" name="month" id = "firstMonth" style="width: 100px;" ><br> -->
+						  <button  onclick = "dateEntry()">Enter</button>
+					</form>
+
+				</div> 
+
+				<button  onclick = "reset()">Reset All Data</button>
+
+			</div> 
+
+		</div> <!-- page three -->
 
 
-</div> <!-- pagetwo-->
 
-</body>
+
+
+
+	</body>
 </html>

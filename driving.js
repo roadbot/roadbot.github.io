@@ -4,10 +4,14 @@ $(document).ready(function() {
 		localStorage.setItem("totalHours", 0);
 		localStorage.setItem("totalMinutes",0);
 		localStorage.setItem("totalSeconds", 0);
-	}else {
+		localStorage.setItem("startingDay", 0);
+		localStorage.setItem("startingMonth", 0);
+	}
+	else {
 		update();
 	}
 });
+
 
 $('<div id="__msg_overlay">').css({
       "width" : "100%"
@@ -62,6 +66,10 @@ var timer = function(){
 
 		add(hours, minutes, seconds);
 
+		var totalH = localStorage.getItem("totalHours");
+		var totalM = localStorage.getItem("totalMinutes");
+		var totalS = localStorage.getItem("totalSeconds");
+
 
 		var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
 	}
@@ -70,10 +78,11 @@ var timer = function(){
 var refresh = function(){
 	location.reload();
 	
-}	
+}
 
 var update = function() {
 	document.getElementById("lasttime").textContent=+ localStorage.getItem("totalHours") + " hr " + localStorage.getItem("totalMinutes") + " min " + localStorage.getItem("totalSeconds") + " sec";
+	averageHours();
 }
 
 var totalHr = 0;
@@ -148,6 +157,8 @@ var reset = function() {
 	localStorage.setItem("totalHours", 0);
 	localStorage.setItem("totalMinutes", 0);
 	localStorage.setItem("totalSeconds", 0);
+	localStorage.setItem("startingDay", 0);
+	localStorage.setItem("startingMonth", 0);
 
 	update();
 }
@@ -185,42 +196,96 @@ clock.setTime(3600);
 
 clock.start(function() {
 		// this (optional) callback will fire each time the clock flips
-	});
+});
 
 
-var firstDay = 0;
-var firstMonth = 0;
 
 
 var dateEntry = function(){
-	firstDay = Number(document.getElementById("firstDay").value);
-	firstMonth = Number(document.getElementById("firstMonth").value);
-	
+	var firstDay = ($("#day").val());
+	var firstMonth = ($("#month").val());
+
+	if ($("#month").val() == "January" || $("#month").val() == "january"){
+		firstMonth = 1; 
+	}
+	else if ($("#month").val() == "February" || $("#month").val() == "february" ){
+		firstMonth = 2;
+	}
+	else if ($("#month").val() == "March" || $("#month").val() == "march"){
+		firstMonth = 3;
+	}
+	else if ($("#month").val() == "April" || $("#month").val() == "april"){
+		firstMonth = 4;
+	}
+	else if ($("#month").val() == "May" || $("#month").val() == "may"){
+		firstMonth = 5;
+	}
+	else if ($("#month").val() == "June" || $("#month").val() == "june"){
+		firstMonth = 6;
+	}
+	else if ($("#month").val() == "July" || $("#month").val() == "july"){
+		firstMonth = 7;
+	}
+	else if ($("#month").val() == "August" || $("#month").val() == "august"){
+		firstMonth = 8;
+	}
+	else if ($("#month").val() == "September" || $("#month").val() == "september"){
+		firstMonth = 9;
+	}
+	else if ($("#month").val() == "October" || $("#month").val() == "october"){
+		firstMonth = 10;
+	}
+	else if ($("#month").val() == "November" || $("#month").val() == "november"){
+		firstMonth = 11;
+	}
+	else if ($("#month").val() == "December" || $("#month").val() == "december"){
+		firstMonth = 12;
+	}
+
+
+
+
+
+
+
+
+
+
+	localStorage.setItem("startingDay", firstDay);
+	localStorage.setItem("startingMonth", firstMonth);
+
+	averageHours();
 
 }
 
-
-
-
-
-
-
 var averageHours = function(){
 	var d = new Date();
-	var today = d.getDate();
-	var month = d.getMonth()+1;
+	var today = Number(d.getDate());
+	var month = Number(d.getMonth()+1);
+
+	totalHr = Number(localStorage.getItem("totalHours"));
+	totalMin = Number(localStorage.getItem("totalMinutes"));
+	totalSec = Number(localStorage.getItem("totalSeconds"));
+
+	var fMonth = Number(localStorage.getItem("startingMonth"));
+	var fDay = Number(localStorage.getItem("startingDay"));
+
 	
 
 	var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
+ 
 
-	var daysLeft = 30 * (firstMonth + 5 - month) + (30 - today) + (30-firstDay) ;
-	
+	var daysLeft = 30 * (fMonth + 5 - month) + (30 - today) + (30-fDay) ;
+
 	var averagePerDay = timeLeftInSec / daysLeft;
 
 	var avghours = Math.floor(averagePerDay / 3600);
 	var avgminutes = Math.round(Math.floor(averagePerDay / 60) - (avghours*60));
-	$('#averageHours').text(avghours + " hr " + avgminutes + " min " );
-
+	
+	if (avghours > -1) {
+		$('#averageHours').text(avghours + " hr " + avgminutes + " min " );
+	}
+	else{
+		$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+	}
 }
-averageHours();
-
