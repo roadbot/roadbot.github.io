@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 	if(localStorage.getItem("totalMinutes") === null) {
 		localStorage.setItem("totalHours", 0);
@@ -28,9 +27,6 @@ $('<div id="__msg_overlay">').css({
     , "opacity" : 0.6
 
 }).appendTo(document.body);
-
-
-
 
 var timer = function(){
 
@@ -88,8 +84,6 @@ var update = function() {
 var totalHr = 0;
 var totalMin = 0;
 var totalSec = 0;
-
-
 
 var add = function (lastHour, lastMin, lastSec) {
 
@@ -164,21 +158,10 @@ var reset = function() {
 }
 
 var dim = function() {
-	//$(window).load(function(e){
-	  //$('#trigger').on('click',function(e){
-		
+
 		$("#dimmer").css("opacity",0.4).fadeIn(300, function () {            
 	     	$('#red').css({'position':'aboslute','z-index':9999});
 	     });
-
-	// $('#trigger').on('click', function () {
-	//     $('#overlay, #overlay-back').fadeIn(500);
-	// });
-
-
-	   //e.preventDefault();
-	   //});
-	//});
 }
 
 var normal = function(){
@@ -244,19 +227,13 @@ var dateEntry = function(){
 
 
 
-
-
-
-
-
-
-
 	localStorage.setItem("startingDay", firstDay);
 	localStorage.setItem("startingMonth", firstMonth);
 
 	averageHours();
 
 }
+
 
 var averageHours = function(){
 	var d = new Date();
@@ -289,3 +266,4 @@ var averageHours = function(){
 		$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
 	}
 }
+
