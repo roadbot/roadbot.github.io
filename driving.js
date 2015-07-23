@@ -1,13 +1,4 @@
 
-// var hours = 0 ;
-// var minutes = 0;
-// var seconds = 0;
-
-
-// var totalHours =20;
-// var totalMinutes = 0;
-// var totalSeconds = 0;
-
 $(document).ready(function() {
 	if(localStorage.getItem("totalMinutes") === null) {
 		localStorage.setItem("totalHours", 0);
@@ -70,6 +61,9 @@ var timer = function(){
 		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
 		add(hours, minutes, seconds);
+
+
+		var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
 	}
 }
 
@@ -79,7 +73,7 @@ var refresh = function(){
 }	
 
 var update = function() {
-	document.getElementById("lasttime").textContent="Hours: " + localStorage.getItem("totalHours") + " Minutes: " + localStorage.getItem("totalMinutes") + " Seconds: " + localStorage.getItem("totalSeconds");
+	document.getElementById("lasttime").textContent=+ localStorage.getItem("totalHours") + " hr " + localStorage.getItem("totalMinutes") + " min " + localStorage.getItem("totalSeconds") + " sec";
 }
 
 var totalHr = 0;
@@ -204,6 +198,10 @@ var dateEntry = function(){
 	
 
 }
+
+
+
+
 
 
 
