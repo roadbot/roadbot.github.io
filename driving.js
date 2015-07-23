@@ -32,8 +32,11 @@ var timer = function(){
 		$('#s').text('Stop Driving!');
 		$('#Result').text('');
 
+		
+		clock.reset(00);
 		dim();
 		clock.start();
+
 
 	}
 	
@@ -41,6 +44,7 @@ var timer = function(){
 		$('#s').text('Start Driving!');
 
 		clock.stop();
+
 
 		normal();
 
@@ -53,6 +57,9 @@ var timer = function(){
 		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
 		add(hours, minutes, seconds);
+
+
+		var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
 	}
 }
 
@@ -62,7 +69,7 @@ var refresh = function(){
 }	
 
 var update = function() {
-	document.getElementById("lasttime").textContent="Hours: " + localStorage.getItem("totalHours") + " Minutes: " + localStorage.getItem("totalMinutes") + " Seconds: " + localStorage.getItem("totalSeconds");
+	document.getElementById("lasttime").textContent=+ localStorage.getItem("totalHours") + " hr " + localStorage.getItem("totalMinutes") + " min " + localStorage.getItem("totalSeconds") + " sec";
 }
 
 var totalHr = 0;
