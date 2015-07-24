@@ -79,21 +79,21 @@
 
 		</div><!-- /page -->
 
-		<div data-role="page" id = "pagetwo">
+	<div data-role="page" id = "pagetwo">
 
 			<div data-role="header">
 				<h1><font size="5">Your Stats!</font></h1>
 		
 	</div><!-- /content -->
 
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#pageone" onclick="update()">Timer</a></li>
-						<li><a href="#pagetwo" onclick="update()" class="ui-btn-active ui-state-persist">Your Stats </a></li>
-						<li><a href="#pagefour" onclick="update()"> Set Start Date</a></li>
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /header -->
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
+							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Your Stats</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
+						</ul>
+					</div><!-- /navbar -->
+				</div><!-- /header -->
 
 
 			<div data-role="content">
@@ -149,31 +149,19 @@
 					</script-->
 				</div>
 
-
-
-				
-
-				<!-- <button  onclick = "averageHours()" >Click here to check out how many hours you should drive a day to finish your hours in 6 months!</button> -->
-				
-				<h3>Average hours a day left</h3>
+				<h3>Average hours a day left:</h3>
 				<div id = "averageHours" ></div> 
 
 				<button  onclick = "reset()">Reset All Data</button>
 			</div>
 
-
-		</div> <!-- pagetwo-->
+	</div> 
 
 
 	<div data-role="page" id = "pagefour">
 
 			<div data-role="header">
 				<h1><font size="5">Your Stats!</font></h1>
-			</div>
-
-
-		<div id = "date" >
-
 
 				<div data-role="navbar">
 					<ul>
@@ -184,7 +172,6 @@
 				</div><!-- /navbar -->
 			</div><!-- /header -->
 
-
 			<div data-role="content">
 		
 				<div id = "date" >
@@ -194,8 +181,6 @@
 
 				    <label for="basic">First Month Started Driving:</label>
 				    <input type="text" name="name" id="month" value="" style="width: 100px;"  />
-
-
 
 						  <!-- First Day Driving: <input type="text" name="day" id = "firstDay" style="width: 100px;" ><br> -->
 						  <!-- First Month Started Driving: <input type="text" name="month" id = "firstMonth" style="width: 100px;" ><br> -->
