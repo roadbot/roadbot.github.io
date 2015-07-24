@@ -161,6 +161,8 @@ var reset = function() {
 	localStorage.setItem("totalSeconds", 0);
 	localStorage.setItem("startingDay", 0);
 	localStorage.setItem("startingMonth", 0);
+	localStorage.setItem("startingYear", 0);
+	localStorage.setItem("totalMonths" , 0);
 
 	update();
 }
@@ -212,6 +214,7 @@ var dateEntry = function(){
 	var firstDay = ($("#day").val());
 	var firstMonth = ($("#month").val());
 	var totalMonth = ($("#totalMonths").val());
+	var firstYear = ($("#year").val());
 
 
 	if ($("#month").val() == "January" || $("#month").val() == "january"){
@@ -253,9 +256,12 @@ var dateEntry = function(){
 
 
 
+
+
 	localStorage.setItem("startingDay", firstDay);
 	localStorage.setItem("startingMonth", firstMonth);
 	localStorage.setItem("totalMonths", totalMonth);
+	localStorage.setItem("startingYear", firstYear);
 
 	averageHours();
 
@@ -265,6 +271,7 @@ var averageHours = function(){
 	var d = new Date();
 	var today = Number(d.getDate());
 	var month = Number(d.getMonth()+1);
+	var year = Number(d.getYear() +1900);
 
 	totalHr = Number(localStorage.getItem("totalHours"));
 	totalMin = Number(localStorage.getItem("totalMinutes"));
@@ -273,14 +280,66 @@ var averageHours = function(){
 
 	var fMonth = Number(localStorage.getItem("startingMonth"));
 	var fDay = Number(localStorage.getItem("startingDay"));
-
+	var fYear = Number(localStorage.getItem("startingYear"));
 	
+
+	if (fYear == 2014){
+		if (fMonth == 12){
+			fMonth = -1; 
+		}
+		else if (fMonth == 11){
+			fMonth = -2; 
+		}
+		else if (fMonth == 10){
+			fMonth = -3; 
+		}
+		else if (fMonth == 9){
+			fMonth = -4; 
+		}
+		else if (fMonth == 8){
+			fMonth = -5; 
+		}
+		else if (fMonth == 7){
+			fMonth = -6; 
+		}
+		else if (fMonth == 6){
+			fMonth = -7; 
+		}
+		else if (fMonth == 5){
+			fMonth = -8; 
+		}
+		else if (fMonth == 4){
+			fMonth = -9; 
+		}
+		else if (fMonth == 3){
+			fMonth = -10; 
+		}
+		else if (fMonth == 2){
+			fMonth = -11; 
+		}
+		else if (fMonth == 1){
+			fMonth = -12; 
+		}
+	}
+
+
+
+
+
+
+
+
+	console.log(totalMon + "totalmonth" );
+	console.log(year + "year");
+	console.log(fYear + "first year"); 
+
+
 
 	var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
  
 
 	var daysLeft = 30 * (fMonth + (totalMon - 1) - month) + (30 - today) + (30-fDay) ;
-
+	console.log(daysLeft + "daysLeft"); 
 	var averagePerDay = timeLeftInSec / daysLeft;
 
 	var avghours = Math.floor(averagePerDay / 3600);
@@ -294,9 +353,9 @@ var averageHours = function(){
 	}
 }
 
-var hoursleft = 0;
-var minleft = 0;
-var secleft = 0;
+// var hoursleft = 0;
+// var minleft = 0;
+// var secleft = 0;
 
 // var left = function(totalHr, totalMin, totalSec){
 
