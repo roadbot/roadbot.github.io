@@ -19,16 +19,11 @@
 				}
 			</style> 
 
-
 	</head> 
 
 	<body> 
 
-	
-
-
 		<div data-role="page" id = "pageone">
-
 
 			<div id="dimmer">
 				<div data-role="header">
@@ -45,7 +40,6 @@
 				</div><!-- /header -->
 
 			</div>
-
 
 			<div data-role="content">
 
@@ -64,29 +58,22 @@
 
 				</div>
 
-
-
 				<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
 					
 				</div> 
 
-				
 				<div align = "center" id = "beforeDriving" style = "PADDING-TOP: 25px"> 
 					Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.
 				</div>
 
-				
 			</div><!-- /content -->
 
 		</div><!-- /page -->
 
 	<div data-role="page" id = "pagetwo">
 
-			
 			<div data-role="header">
 				<h1><font size="5">Your Stats!</font></h1>
-		
-
 					<div data-role="navbar">
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
@@ -96,7 +83,6 @@
 						</ul>
 					</div><!-- /navbar -->
 			</div><!-- /header -->
-
 
 			<div data-role="content">
 
@@ -112,43 +98,7 @@
 
 				</div>
 
-				<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: </font>
-				</div>
-
-				<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" "PADDING-BOTTOM: 100px"> 
-					 <!--script>  
-						// var hours = localStorage.getItem("total")
-						// var hoursleft = 0;
-						// var minleft = 0;
-						// var secleft = 0;
-						// if(hours == 0 && minutes == 0 && seconds == 0){
-						// 	hoursleft = 50;
-						// 	minleft = 0;
-						// 	secleft = 0;
-						// }
-						// else if (minutes == 0 && seconds == 0){
-						// 	hoursleft = 50 - hours;
-						// 	minleft = 0;
-						// 	secleft = 0;
-							
-						// }
-						// else if(seconds == 0){
-						// 	hoursleft = 49 - hours;
-						// 	minleft = 60 - minutes;
-						// 	secleft = 0;
-						// }
-						// else if(hours != 0 && minutes != 0 && seconds != 0){
-						// 	hoursleft = 49 - hours;
-						// 	minleft = 59 - minutes;
-						// 	secleft = 60 - seconds;
-						// }
-
-
-						// document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
-
-
-
-					</script-->
+				<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: <span id="timeleft"></span></font>
 				</div>
 
 				<h3>Average hours a day left:</h3>
@@ -164,7 +114,6 @@
 		<div data-role="header">
 			<h1><font size="5">Calendar</font></h1>
 
-
 			<div data-role="navbar">
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
@@ -175,7 +124,6 @@
 			</div><!-- /navbar -->
 		</div>
 
-
 		<div data-role="content">
 			<h2>This calendar will show information about how much you have driven!</h2>
 				<div id="calendar"></div>
@@ -184,8 +132,6 @@
 		</div>
 
 	</div>
-
-
 
 	<div data-role="page" id = "pagefour">
 
@@ -213,12 +159,9 @@
 				    <input type="text" name="name" id="month" value="" style="width: 100px;"  />
 
 				    <label for="basic" PADDING-BOTTOM = "100px">Number of months you want to practice driving</label>
-				    <input type="text" name="name" id="totalMonths" value="" style="width: 100px;"  />
+				    <input type="text" name="name" id="totalMonths" value="" style="width: 100px;"/>
 
-
-	
-
-						<button type="button" style="float:left"onclick = "dateEntry()" >Enter </button>
+					<button type="button" style="float:left"onclick = "dateEntry()" >Enter </button>
 
 				</div> 
 
@@ -228,7 +171,5 @@
 
 	</div> <!-- page four -->
 
-
 </body>
 </html>
-
