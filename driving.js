@@ -298,16 +298,13 @@ var hoursleft = 0;
 var minleft = 0;
 var secleft = 0;
 
-var left = function(totalHr, totalMin, totalSec){
+// var left = function(totalHr, totalMin, totalSec){
 
-	hoursleft = Number(localStorage.getItem("hoursLeft"));
-	minleft = Number(localStorage.getItem("minLeft"));
-	secleft = Number(localStorage.getItem("secLeft"));
+// 	hoursleft = Number(localStorage.getItem("hoursLeft"));
+// 	minleft = Number(localStorage.getItem("minLeft"));
+// 	secleft = Number(localStorage.getItem("secLeft"));
 
 
 
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> origin/master
+
+// }
