@@ -57,7 +57,10 @@ var timer = function(){
 	}
 }
 
-		
+var refresh = function(){
+	location.reload();
+	
+}	
 
 var update = function() {
 	document.getElementById("lasttime").textContent="Hours: " + localStorage.getItem("totalHours") + " Minutes: " + localStorage.getItem("totalMinutes") + " Seconds: " + localStorage.getItem("totalSeconds");
