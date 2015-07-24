@@ -23,25 +23,24 @@
 </head> 
 <body> 
 
-
-
-
 <div data-role="page" id = "pageone">
 
-	<div data-role="header">
-		<h1><font size="6">Timer </font></h1>
+	<div id="dimmer">
+		<div data-role="header">
+			<h1><font size="6">Timer </font></h1>
 
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#pageone" onclick="update()">Timer</a></li>
-				<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
-			</ul>
-		</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#pageone" onclick="update()">Timer</a></li>
+					<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div><!-- /header -->
+
 	</div>
 
+
 	<div data-role="content">
-	
-		<button  onclick = "timer()"  ><p id = "s">Start Driving!</p></button>
 
 		<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button>
 

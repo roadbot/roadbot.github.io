@@ -45,7 +45,6 @@ var timer = function(){
 		normal();
 
 		var getTime = Number(clock.getTime());
-		alert(getTime);
 		var hours = Number(Math.floor(getTime / 3600));
 		//var h = getTime - hours * 3600;
 		var minutes = Number(Math.floor(getTime / 60) - (hours*60));
@@ -139,7 +138,7 @@ var dim = function() {
 	//$(window).load(function(e){
 	  //$('#trigger').on('click',function(e){
 		
-		$("#pageone").css("opacity",0.4).fadeIn(300, function () {            
+		$("#dimmer").css("opacity",0.4).fadeIn(300, function () {            
 	     	$('#red').css({'position':'aboslute','z-index':9999});
 	     });
 
@@ -154,7 +153,7 @@ var dim = function() {
 }
 
 var normal = function(){
-	$("#pageone").css("opacity",1).fadeIn(300, function () {            
+	$("#dimmer").css("opacity",1).fadeIn(300, function () {            
 	     	//$('#red').css({'position':'aboslute','z-index':9999});
 	});
 }
