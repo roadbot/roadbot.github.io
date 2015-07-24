@@ -5,9 +5,6 @@ $(document).ready(function() {
 		localStorage.setItem("totalSeconds", 0);
 		localStorage.setItem("startingDay", 0);
 		localStorage.setItem("startingMonth", 0);
-		localStorage.setItem("hoursleft", 0);
-		localStorage.setItem("minleft", 0);
-		localStorage.setItem("secleft", 0);
 	}
 	else {
 		update();
@@ -33,30 +30,24 @@ $('<div id="__msg_overlay">').css({
 
 var timer = function(){
 
-
-
 	var text = $('#s').text();
-
 
 	if(text === "Start Driving!") {
 
 		$('#s').text('Stop Driving!');
 		$('#Result').text('');
 
-		
 		clock.reset(00);
 		dim();
 		clock.start();
 		$('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
 		
-
 	}
 	
 	else if(text === "Stop Driving!") {
 		$('#s').text('Start Driving!');
 
 		clock.stop();
-
 
 		normal();
 
@@ -65,11 +56,13 @@ var timer = function(){
 		var minutes = Number(Math.floor(getTime / 60) - (hours*60));
 		var seconds = Number((getTime - minutes * 60) - (hours*3600) - 1);
 	
-		$('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.");
+		$('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you exit the app at any time, the timer will stop and your time will not be counted.");
 
 		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
 		add(hours, minutes, seconds);
+		
+		left();
 
 		var totalH = localStorage.getItem("totalHours");
 		var totalM = localStorage.getItem("totalMinutes");
@@ -87,6 +80,7 @@ var refresh = function(){
 var update = function() {
 	document.getElementById("lasttime").textContent=+ localStorage.getItem("totalHours") + " hr " + localStorage.getItem("totalMinutes") + " min " + localStorage.getItem("totalSeconds") + " sec";
 	averageHours();
+	left();
 }
 
 var totalHr = 0;
@@ -153,7 +147,6 @@ var add = function (lastHour, lastMin, lastSec) {
 
 }
 
-
 var reset = function() {
 
 	localStorage.setItem("totalHours", 0);
@@ -186,7 +179,6 @@ var dim = function() {
 	   //e.preventDefault();
 	   //});
 	//});
-
 
 }
 
@@ -253,9 +245,6 @@ var dateEntry = function(){
 	else if ($("#month").val() == "December" || $("#month").val() == "december"){
 		firstMonth = 12;
 	}
-
-
-
 
 
 	localStorage.setItem("startingDay", firstDay);
@@ -325,10 +314,6 @@ var averageHours = function(){
 
 
 
-
-
-
-
 	console.log(totalMon + "totalmonth" );
 	console.log(year + "year");
 	console.log(fYear + "first year"); 
@@ -357,13 +342,60 @@ var averageHours = function(){
 // var minleft = 0;
 // var secleft = 0;
 
-// var left = function(totalHr, totalMin, totalSec){
+var left = function(){
 
-// 	hoursleft = Number(localStorage.getItem("hoursLeft"));
-// 	minleft = Number(localStorage.getItem("minLeft"));
-// 	secleft = Number(localStorage.getItem("secLeft"));
+	var tHr = Number(localStorage.getItem("totalHours"));
+	var tMin = Number(localStorage.getItem("totalMinutes"));
+	var tSec = Number(localStorage.getItem("totalSeconds"));
 
+	// set at max time
 
+	hoursleft = 50;
+	minleft = 0;
+	secleft = 0;
 
+	// do the math with our totals
 
-// }
+	if(tSec > secleft) {
+		secleft = 60 - tSec;
+
+		// now move down minutes and subtract
+
+		minleft = 59;
+		hoursleft = 49;
+	}
+
+	if(minleft === 0) {
+
+		if(tMin === 0) {
+		}
+
+		else {
+			minleft = 60 - tMin;
+			hoursleft = hoursleft - 1;
+		}
+	}
+
+	else {
+		minleft = minleft - tMin;
+	}
+
+	hoursleft = hoursleft - tHr;
+
+	// print the time lift
+	document.getElementById("timeleft").textContent=+ hoursleft + " hr " + minleft + " min " + secleft + " sec ";
+
+}
+
+$(document).ready(function() {
+	if(localStorage.getItem("totalMinutes") === null) {
+		localStorage.setItem("totalHours", 0);
+		localStorage.setItem("totalMinutes",0);
+		localStorage.setItem("totalSeconds", 0);
+		localStorage.setItem("startingDay", 0);
+		localStorage.setItem("startingMonth", 0);
+	}
+	else {
+		update();
+	}
+});
