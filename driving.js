@@ -332,3 +332,16 @@ var left = function(){
 	document.getElementById("timeleft").textContent=+ hoursleft + " hr " + minleft + " min " + secleft + " sec ";
 
 }
+
+$(document).ready(function() {
+	if(localStorage.getItem("totalMinutes") === null) {
+		localStorage.setItem("totalHours", 0);
+		localStorage.setItem("totalMinutes",0);
+		localStorage.setItem("totalSeconds", 0);
+		localStorage.setItem("startingDay", 0);
+		localStorage.setItem("startingMonth", 0);
+	}
+	else {
+		update();
+	}
+});
