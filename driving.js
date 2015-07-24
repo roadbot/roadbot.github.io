@@ -5,6 +5,9 @@ $(document).ready(function() {
 		localStorage.setItem("totalSeconds", 0);
 		localStorage.setItem("startingDay", 0);
 		localStorage.setItem("startingMonth", 0);
+		localStorage.setItem("hoursleft", 0);
+		localStorage.setItem("minleft", 0);
+		localStorage.setItem("secleft", 0);
 	}
 	else {
 		update();
@@ -66,13 +69,11 @@ var timer = function(){
 
 		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
-
 		add(hours, minutes, seconds);
 
 		var totalH = localStorage.getItem("totalHours");
 		var totalM = localStorage.getItem("totalMinutes");
 		var totalS = localStorage.getItem("totalSeconds");
-
 
 		var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
 	}
@@ -207,12 +208,11 @@ clock.start(function() {
 		// this (optional) callback will fire each time the clock flips
 });
 
-
-
-
 var dateEntry = function(){
 	var firstDay = ($("#day").val());
 	var firstMonth = ($("#month").val());
+	var totalMonth = ($("#totalMonths").val());
+
 
 	if ($("#month").val() == "January" || $("#month").val() == "january"){
 		firstMonth = 1; 
@@ -255,11 +255,11 @@ var dateEntry = function(){
 
 	localStorage.setItem("startingDay", firstDay);
 	localStorage.setItem("startingMonth", firstMonth);
+	localStorage.setItem("totalMonths", totalMonth);
 
 	averageHours();
 
 }
-
 
 var averageHours = function(){
 	var d = new Date();
@@ -269,6 +269,7 @@ var averageHours = function(){
 	totalHr = Number(localStorage.getItem("totalHours"));
 	totalMin = Number(localStorage.getItem("totalMinutes"));
 	totalSec = Number(localStorage.getItem("totalSeconds"));
+	totalMon = Number(localStorage.getItem("totalMonths"));
 
 	var fMonth = Number(localStorage.getItem("startingMonth"));
 	var fDay = Number(localStorage.getItem("startingDay"));
@@ -278,7 +279,7 @@ var averageHours = function(){
 	var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
  
 
-	var daysLeft = 30 * (fMonth + 5 - month) + (30 - today) + (30-fDay) ;
+	var daysLeft = 30 * (fMonth + (totalMon - 1) - month) + (30 - today) + (30-fDay) ;
 
 	var averagePerDay = timeLeftInSec / daysLeft;
 
@@ -293,3 +294,16 @@ var averageHours = function(){
 	}
 }
 
+var hoursleft = 0;
+var minleft = 0;
+var secleft = 0;
+
+var left = function(totalHr, totalMin, totalSec){
+
+	hoursleft = Number(localStorage.getItem("hoursLeft"));
+	minleft = Number(localStorage.getItem("minLeft"));
+	secleft = Number(localStorage.getItem("secLeft"));
+
+
+
+}

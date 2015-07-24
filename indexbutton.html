@@ -38,6 +38,7 @@
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
 							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
 							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
 						</ul>
 					</div><!-- /navbar -->
@@ -81,17 +82,21 @@
 
 	<div data-role="page" id = "pagetwo">
 
-		<div data-role="header">
-					<h1><font size="5">Your Stats!</font></h1>
+			<div id="dimmer">
+				<div data-role="header">
+					<h1><font size="6">Timer </font></h1>
 
 					<div data-role="navbar">
 						<ul>
-							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
-							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Your Stats</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
+							<li><a href="#pageone" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
+							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
 						</ul>
 					</div><!-- /navbar -->
 				</div><!-- /header -->
+
+			</div>
 
 
 			<div data-role="content">
@@ -147,10 +152,6 @@
 					</script-->
 				</div>
 
-
-
-				
-
 				<h3>Average hours a day left:</h3>
 				<div id = "averageHours" ></div> 
 
@@ -159,23 +160,48 @@
 
 	</div> 
 
+	<div data-role="page" id = "pagethree">
+
+		<div data-role="header">
+			<h1><font size="5">Calendar</font></h1>
+
+
+			<div data-role="navbar">
+						<ul>
+							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
+							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" >Your Stats</a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Calendar </a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
+						</ul>
+			</div><!-- /navbar -->
+		</div>
+
+
+		<div data-role="content">
+			<h2>This calendar will show information about how much you have driven!</h2>
+				<div id="calendar"></div>
+	    		<div id="date">Select Date</div>
+
+		</div>
+
+	</div>
+
+
 
 	<div data-role="page" id = "pagefour">
 
 			<div data-role="header">
 				<h1><font size="5">Your Stats!</font></h1>
-			
-
 
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageone" onclick="update()">Timer</a></li>
 						<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
+						<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
 						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Set Start Date</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div><!-- /header -->
-
 
 			<div data-role="content">
 		
@@ -187,11 +213,25 @@
 				    <label for="basic">First Month Started Driving:</label>
 				    <input type="text" name="name" id="month" value="" style="width: 100px;"  />
 
+				    <label for="basic" PADDING-BOTTOM = "100px">Number of months you want to practice driving</label>
+				    <input type="text" name="name" id="totalMonths" value="" style="width: 100px;"  />
 
 
-						  <!-- First Day Driving: <input type="text" name="day" id = "firstDay" style="width: 100px;" ><br> -->
-						  <!-- First Month Started Driving: <input type="text" name="month" id = "firstMonth" style="width: 100px;" ><br> -->
-						  <button  onclick = "dateEntry()">Enter</button>
+					
+
+					<div class="custom-buttons">
+
+ 
+
+						<button type="button" style="float:left"onclick = "dateEntry()" >Enter </button>
+
+						
+
+
+						<p style="clear:floats"></p>
+
+					</div>
+
 
 				</div> 
 
@@ -201,13 +241,6 @@
 
 	</div> <!-- page four -->
 
-
-
-
-
-
-
-
-
 </body>
 </html>
+
