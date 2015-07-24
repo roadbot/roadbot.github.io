@@ -1,9 +1,9 @@
-<<<<<<< HEAD
+
 /*#button1 , #button2 {
 display:inline-block;
 /**other codes**/
-/*}
-=======
+/*}*/
+
 #dimmer {
     display: none;
     position: fixed;
@@ -58,5 +58,5 @@ display:inline-block;
     height   : 100%;
     z-index  : 10;
     display  : none;
-} */
+} 
 >>>>>>> origin/master
