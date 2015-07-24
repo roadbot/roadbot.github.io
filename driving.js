@@ -45,8 +45,11 @@ var timer = function(){
 		$('#s').text('Stop Driving!');
 		$('#Result').text('');
 
+		
+		clock.reset(00);
 		dim();
 		clock.start();
+
 
 	}
 	
@@ -54,6 +57,7 @@ var timer = function(){
 		$('#s').text('Start Driving!');
 
 		clock.stop();
+
 
 		normal();
 
