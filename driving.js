@@ -5,6 +5,9 @@ $(document).ready(function() {
 		localStorage.setItem("totalSeconds", 0);
 		localStorage.setItem("startingDay", 0);
 		localStorage.setItem("startingMonth", 0);
+		localStorage.setItem("hoursleft", 0);
+		localStorage.setItem("minleft", 0);
+		localStorage.setItem("secleft", 0);
 	}
 	else {
 		update();
@@ -66,13 +69,11 @@ var timer = function(){
 
 		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
-
 		add(hours, minutes, seconds);
 
 		var totalH = localStorage.getItem("totalHours");
 		var totalM = localStorage.getItem("totalMinutes");
 		var totalS = localStorage.getItem("totalSeconds");
-
 
 		var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
 	}
@@ -207,9 +208,6 @@ clock.start(function() {
 		// this (optional) callback will fire each time the clock flips
 });
 
-
-
-
 var dateEntry = function(){
 	var firstDay = ($("#day").val());
 	var firstMonth = ($("#month").val());
@@ -260,7 +258,6 @@ var dateEntry = function(){
 
 }
 
-
 var averageHours = function(){
 	var d = new Date();
 	var today = Number(d.getDate());
@@ -293,3 +290,16 @@ var averageHours = function(){
 	}
 }
 
+var hoursleft = 0;
+var minleft = 0;
+var secleft = 0;
+
+var left = function(totalHr, totalMin, totalSec){
+
+	hoursleft = Number(localStorage.getItem("hoursLeft"));
+	minleft = Number(localStorage.getItem("minLeft"));
+	secleft = Number(localStorage.getItem("secLeft"));
+
+
+
+}
