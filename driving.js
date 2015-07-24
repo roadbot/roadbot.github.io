@@ -306,4 +306,8 @@ var left = function(totalHr, totalMin, totalSec){
 
 
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/master
