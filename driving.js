@@ -39,9 +39,13 @@ $('<div id="__msg_overlay">').css({
 
 var timer = function(){
 
+
+
 	var text = $('#s').text();
 
+
 	if(text === "Start Driving!") {
+
 		$('#s').text('Stop Driving!');
 		$('#Result').text('');
 
@@ -49,7 +53,8 @@ var timer = function(){
 		clock.reset(00);
 		dim();
 		clock.start();
-
+		$('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
+		
 
 	}
 	
@@ -66,8 +71,10 @@ var timer = function(){
 		var minutes = Number(Math.floor(getTime / 60) - (hours*60));
 		var seconds = Number((getTime - minutes * 60) - (hours*3600) - 1);
 	
+		$('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.");
 
 		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
+
 
 		add(hours, minutes, seconds);
 	}
@@ -162,9 +169,11 @@ var dim = function() {
 	//$(window).load(function(e){
 	  //$('#trigger').on('click',function(e){
 		
-		$("#dimmer").css("opacity",0.4).fadeIn(300, function () {            
+		$("#dimmer").css("opacity",0.0).fadeIn(300, function () {            
 	     	$('#red').css({'position':'aboslute','z-index':9999});
 	     });
+
+		$("#pageone").css('background-image', 'url("grey.jpg")');
 
 	// $('#trigger').on('click', function () {
 	//     $('#overlay, #overlay-back').fadeIn(500);
@@ -180,6 +189,9 @@ var normal = function(){
 	$("#dimmer").css("opacity",1).fadeIn(300, function () {            
 	     	//$('#red').css({'position':'aboslute','z-index':9999});
 	});
+
+	$("#pageone").css('background-image', 'url("white.jpg")');
+
 }
 
 var clock = $('.your-clock').FlipClock({

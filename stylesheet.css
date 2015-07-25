@@ -32,6 +32,11 @@ display:inline-block;
     left: 10%;
 }
 
+.beforeDriving p{
+    color: #FF69B4;
+    font-size: 200%;
+}
+
 
 /*html, body {
     width  : 100%;
