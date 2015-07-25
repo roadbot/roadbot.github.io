@@ -192,7 +192,7 @@ var normal = function(){
 	     	//$('#red').css({'position':'aboslute','z-index':9999});
 	});
 
-	$("#pageone").css('background-image', 'url("white.jpg")');
+	$("#pageone").css('background-image', 'url("whites.jpg")');
 
 }
 
