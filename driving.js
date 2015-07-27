@@ -163,8 +163,11 @@ var reset = function() {
 	localStorage.setItem("startingMonth", 0);
 	localStorage.setItem("startingYear", 0);
 	localStorage.setItem("totalMonths" , 0);
+	// localStorage.setItem("hoursleft", 0);
+	// localStorage.setItem("minleft", 0);
+	// localStorage.setItem("secleft", 0);
 
-	update();
+
 }
 
 var dim = function() {
@@ -335,7 +338,7 @@ var averageHours = function(){
 	var daysLeft = 30 * (fMonth + (totalMon - 1) - month) + (30 - today) + fDay ;
 	
 	var averagePerDay = timeLeftInSec / daysLeft;
-	console.log(averagePerDay);
+	
 
 	var avghours = Math.floor(averagePerDay / 3600);
 	var avgminutes = Math.round(Math.floor(averagePerDay / 60) - (avghours*60));
@@ -376,6 +379,17 @@ var addTimeHr = function(){
 	addedHours = addHours + addedHours;
 	localStorage.setItem("totalHours", addedHours);
 
+	
+	var addMinutes = Number(($("#addMinutes").val()));
+
+
+	var addedMinutes = Number(localStorage.getItem("totalMinutes"));
+
+	addedMinutes = addMinutes + addedMinutes;
+	localStorage.setItem("totalMinutes", addedMinutes);
+
+	update();
+
 }
 
 
@@ -391,11 +405,27 @@ var left = function(){
 
 	// set at max time
 
+	// localStorage.setItem("hoursleft", 50);
+	// localStorage.setItem("minleft", 0);
+	// localStorage.setItem("secleft", 0);
+	
+
 	hoursleft = 50;
 	minleft = 0;
 	secleft = 0;
 
+
+
 	// do the math with our totals
+	
+
+	// if (hoursleft <= 0 && minleft <= 0 && secleft <= 0){
+	// 	hoursleft = 0;
+	// 	minleft = 0;
+	// 	secleft = 0;
+	// }
+
+	// else{
 
 	if(tSec > secleft) {
 		secleft = 60 - tSec;
@@ -422,6 +452,9 @@ var left = function(){
 	}
 
 	hoursleft = hoursleft - tHr;
+	//}
+
+		
 
 	// print the time lift
 	document.getElementById("timeleft").textContent=+ hoursleft + " hr " + minleft + " min " + secleft + " sec ";
