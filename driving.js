@@ -1,4 +1,7 @@
-$(document).ready(function() {
+
+var jq = $.noConflict();
+
+jq(document).ready(function() {
 	if(localStorage.getItem("totalMinutes") === null) {
 		localStorage.setItem("totalHours", 0);
 		localStorage.setItem("totalMinutes",0);
@@ -12,7 +15,7 @@ $(document).ready(function() {
 });
 
 
-$('<div id="__msg_overlay">').css({
+jq('<div id="__msg_overlay">').css({
       "width" : "100%"
     , "height" : "100%"
     , "background" : "#000"
@@ -30,22 +33,24 @@ $('<div id="__msg_overlay">').css({
 
 var timer = function(){
 
-	var text = $('#s').text();
+
+	var text = jq('#s').text();
+
 
 	if(text === "Start Driving!") {
 
-		$('#s').text('Stop Driving!');
-		$('#Result').text('');
+		jq('#s').text('Stop Driving!');
+		jq('#Result').text('');
 
 		clock.reset(00);
 		dim();
 		clock.start();
-		$('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
+		jq('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
 		
 	}
 	
 	else if(text === "Stop Driving!") {
-		$('#s').text('Start Driving!');
+		jq('#s').text('Start Driving!');
 
 		clock.stop();
 
@@ -56,9 +61,11 @@ var timer = function(){
 		var minutes = Number(Math.floor(getTime / 60) - (hours*60));
 		var seconds = Number((getTime - minutes * 60) - (hours*3600) - 1);
 	
-		$('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you exit the app at any time, the timer will stop and your time will not be counted.");
 
-		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
+		jq('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.");
+
+
+		jq('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
 		add(hours, minutes, seconds);
 		
@@ -162,17 +169,17 @@ var reset = function() {
 
 var dim = function() {
 
-	//$(window).load(function(e){
-	  //$('#trigger').on('click',function(e){
+	//jq(window).load(function(e){
+	  //jq('#trigger').on('click',function(e){
 		
-		$("#dimmer").css("opacity",0.0).fadeIn(300, function () {            
-	     	$('#red').css({'position':'aboslute','z-index':9999});
+		jq("#dimmer").css("opacity",0.0).fadeIn(300, function () {            
+	     	jq('#red').css({'position':'aboslute','z-index':9999});
 	     });
 
-		$("#pageone").css('background-image', 'url("grey.jpg")');
+		jq("#pageone").css('background-image', 'url("grey.jpg")');
 
-	// $('#trigger').on('click', function () {
-	//     $('#overlay, #overlay-back').fadeIn(500);
+	// jq('#trigger').on('click', function () {
+	//     jq('#overlay, #overlay-back').fadeIn(500);
 	// });
 
 
@@ -183,15 +190,15 @@ var dim = function() {
 }
 
 var normal = function(){
-	$("#dimmer").css("opacity",1).fadeIn(300, function () {            
-	     	//$('#red').css({'position':'aboslute','z-index':9999});
+	jq("#dimmer").css("opacity",1).fadeIn(300, function () {            
+	     	//jq('#red').css({'position':'aboslute','z-index':9999});
 	});
 
-	$("#pageone").css('background-image', 'url("whites.jpg")');
+	jq("#pageone").css('background-image', 'url("whites.jpg")');
 
 }
 
-var clock = $('.your-clock').FlipClock({
+var clock = jq('.your-clock').FlipClock({
 	//options
 	
 });
@@ -203,46 +210,47 @@ clock.start(function() {
 });
 
 var dateEntry = function(){
-	var firstDay = ($("#day").val());
-	var firstMonth = ($("#month").val());
-	var totalMonth = ($("#totalMonths").val());
-	var firstYear = ($("#year").val());
+
+	var firstDay = (jq("#day").val());
+	var firstMonth = (jq("#month").val());
+	var totalMonth = (jq("#totalMonths").val());
+	var firstYear = (jq("#year").val());
 
 
-	if ($("#month").val() == "January" || $("#month").val() == "january"){
+	if (jq("#month").val() == "January" || jq("#month").val() == "january"){
 		firstMonth = 1; 
 	}
-	else if ($("#month").val() == "February" || $("#month").val() == "february" ){
+	else if (jq("#month").val() == "February" || jq("#month").val() == "february" ){
 		firstMonth = 2;
 	}
-	else if ($("#month").val() == "March" || $("#month").val() == "march"){
+	else if (jq("#month").val() == "March" || jq("#month").val() == "march"){
 		firstMonth = 3;
 	}
-	else if ($("#month").val() == "April" || $("#month").val() == "april"){
+	else if (jq("#month").val() == "April" || jq("#month").val() == "april"){
 		firstMonth = 4;
 	}
-	else if ($("#month").val() == "May" || $("#month").val() == "may"){
+	else if (jq("#month").val() == "May" || jq("#month").val() == "may"){
 		firstMonth = 5;
 	}
-	else if ($("#month").val() == "June" || $("#month").val() == "june"){
+	else if (jq("#month").val() == "June" || jq("#month").val() == "june"){
 		firstMonth = 6;
 	}
-	else if ($("#month").val() == "July" || $("#month").val() == "july"){
+	else if (jq("#month").val() == "July" || jq("#month").val() == "july"){
 		firstMonth = 7;
 	}
-	else if ($("#month").val() == "August" || $("#month").val() == "august"){
+	else if (jq("#month").val() == "August" || jq("#month").val() == "august"){
 		firstMonth = 8;
 	}
-	else if ($("#month").val() == "September" || $("#month").val() == "september"){
+	else if (jq("#month").val() == "September" || jq("#month").val() == "september"){
 		firstMonth = 9;
 	}
-	else if ($("#month").val() == "October" || $("#month").val() == "october"){
+	else if (jq("#month").val() == "October" || jq("#month").val() == "october"){
 		firstMonth = 10;
 	}
-	else if ($("#month").val() == "November" || $("#month").val() == "november"){
+	else if (jq("#month").val() == "November" || jq("#month").val() == "november"){
 		firstMonth = 11;
 	}
-	else if ($("#month").val() == "December" || $("#month").val() == "december"){
+	else if (jq("#month").val() == "December" || jq("#month").val() == "december"){
 		firstMonth = 12;
 	}
 
@@ -332,6 +340,7 @@ var averageHours = function(){
 	var avghours = Math.floor(averagePerDay / 3600);
 	var avgminutes = Math.round(Math.floor(averagePerDay / 60) - (avghours*60));
 	
+
 	var avghoursWeek = Math.floor((averagePerDay *7) / 3600);
 	var avgminutesWeek = Math.floor(((averagePerDay *7) / 60) - (avghoursWeek*60));
 
@@ -348,6 +357,7 @@ var averageHours = function(){
 		else{
 			$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
 		}
+
 	}
 }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-				<title>My Page</title> 
+			<title>My Page</title> 
 			<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
 			<meta name="viewport" content="width=device-width, initial-scale=1"> 
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
@@ -12,16 +12,45 @@
 			<script src="FlipClock-master/compiled/flipclock.min.js"></script>
 			<script src = "driving.js"> </script>
 
+			<!-- JQUERY NO CONFLICT OKAY YOU GOT THIS EMILY -->
+
+
+
+			<script type="text/javascript" src="prototype.js"></script>
+
+
+
+
+		    <script type="text/javascript" src="calendarview-1.2/javascripts/calendarview.js"></script>
+		    
+		    <script type="text/javascript">
+		    
+		      window.onload = function() {
+		        Calendar.setup({
+		          dateField     : 'date',
+		          parentElement : 'calendar'
+		        })
+		      }
+		    </script>
+
 			<style>
 				#time {
 					PADDING-TOP: 50px;
 					width: 100%;
 				}
 			</style> 
+			<!--script>
+			      jq(document).bind("mobileinit", function() {
+				      jq.mobile.page.prototype.options.addBackBtn = true;
+				      jq.mobile.defaultPageTransition = 'none';
+				      jq.mobile.useFastClick  = false;
+				});
+			</script-->
 
 	</head> 
 
 	<body> 
+
 
 		<div data-role="page" id = "pageone">
 
@@ -34,7 +63,9 @@
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
 							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
 							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
+
+
 						</ul>
 					</div><!-- /navbar -->
 				</div><!-- /header -->
@@ -50,11 +81,13 @@
 
 					<script type="text/javascript">
 						
-						 var clock = $('.clock').FlipClock({
+						 var clock = jq('.clock').FlipClock({
 							autoStart: false
 						 });
 
 					</script>
+					
+
 
 				</div>
 
@@ -84,7 +117,8 @@
 					</div><!-- /navbar -->
 			</div><!-- /header -->
 
-			<div data-role="content">
+
+		<div data-role="content">
 
 				<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: <span id="lasttime"></span></font>
 				</div> 
@@ -107,6 +141,7 @@
 				<h3>Average hours a WEEK :</h3>
 				<div id = "averageWeek" ></div> 
 
+
 				<button  onclick = "reset()">Reset All Data</button>
 			</div>
 
@@ -121,11 +156,13 @@
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
 							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" >Your Stats</a></li>
-							<li><a href="#pagethree" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Calendar </a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Calendar</a></li>
 							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
 						</ul>
 			</div><!-- /navbar -->
 		</div>
+
+
 
 		<div data-role="content">
 			<h2>This calendar will show information about how much you have driven!</h2>
@@ -134,19 +171,23 @@
 
 		</div>
 
+
+
 	</div>
+
 
 	<div data-role="page" id = "pagefour">
 
 			<div data-role="header">
-				<h1><font size="5">Your Stats!</font></h1>
+				<h1><font size="5">Settings</font></h1>
+
 
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageone" onclick="update()">Timer</a></li>
 						<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
 						<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
-						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Set Start Date</a></li>
+						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Settings</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div><!-- /header -->
