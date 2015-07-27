@@ -56,26 +56,28 @@
 
 			<div id="dimmer">
 				<div data-role="header">
-					<h1><font size="6">Timer </font></h1>
+					<h1><font size="5">Timer </font></h1>
+				</div>
 
-					<div data-role="navbar">
-						<ul>
-							<li><a href="#pageone" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
-							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
-							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
+
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()" onclick="refresh()">Your Stats</a></li>
+								<li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li>
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
 
 
-						</ul>
-					</div><!-- /navbar -->
-				</div><!-- /header -->
-
+							</ul>
+						</div><!-- /navbar -->
+					</div>
 			</div>
 
 			<div data-role="content">
 
 
-				<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button>
+				<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button> 
 
 				<div class="clock" id = "time" >
 
@@ -87,8 +89,6 @@
 
 					</script>
 					
-
-
 				</div>
 
 				<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
@@ -106,16 +106,23 @@
 	<div data-role="page" id = "pagetwo">
 
 			<div data-role="header">
-				<h1><font size="5">Your Stats!</font></h1>
-					<div data-role="navbar">
-						<ul>
-							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
-							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Your Stats</a></li>
-							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
-						</ul>
-					</div><!-- /navbar -->
-			</div><!-- /header -->
+					<h1><font size="5">Your Stats!</font></h1>
+			</div>
+
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
+
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()" class="ui-btn-active ui-state-persist" onclick="refresh()">Your Stats</a></li>
+								<li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li>
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
+
+
+							</ul>
+						</div><!-- /navbar -->
+					</div>
+
 
 
 		<div data-role="content">
@@ -154,20 +161,23 @@
 
 	<div data-role="page" id = "pagethree">
 
-		<div data-role="header">
-			<h1><font size="5">Calendar</font></h1>
+			<div data-role="header">
+					<h1><font size="5">Calendar</font></h1>
+			</div>
 
-			<div data-role="navbar">
-						<ul>
-							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
-							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" >Your Stats</a></li>
-							<li><a href="#pagethree" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist" >Calendar</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
-						</ul>
-			</div><!-- /navbar -->
-		</div>
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
 
 
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()"  onclick="refresh()">Your Stats</a></li>
+								<li><a href="#pagethree" data-icon="grid" onclick="update()" class="ui-btn-active ui-state-persist" onclick="refresh()">Calendar</a></li>
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
+
+							</ul>
+						</div><!-- /navbar -->
+					</div>
 
 		<div data-role="content">
 			<h2>This calendar will show information about how much you have driven!</h2>
@@ -178,24 +188,27 @@
 
 
 
-	</div>
+</div>
 
 
 	<div data-role="page" id = "pagefour">
 
 			<div data-role="header">
-				<h1><font size="5">Settings</font></h1>
+					<h1><font size="5">Settings</font></h1>
+			</div>
 
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
 
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#pageone" onclick="update()">Timer</a></li>
-						<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
-						<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
-						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Settings</a></li>
-					</ul>
-				</div><!-- /navbar -->
-			</div><!-- /header -->
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()"  onclick="refresh()">Your Stats</a></li>
+								<li><a href="#pagethree" data-icon="grid" onclick="update()"  onclick="refresh()">Calendar</a></li>
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" class="ui-btn-active ui-state-persist"onclick="refresh()">Settings</a></li>
+
+							</ul>
+						</div><!-- /navbar -->
+					</div>
 
 			<div data-role="content">
 		
@@ -212,8 +225,6 @@
 
 				    <label for="basic" PADDING-BOTTOM = "100px">Number of Months You Want To Practice Driving:</label>
 				    <input type="text" name="name" id="totalMonths" value="" style="width: 100px;"  />
-
-
 
 					<button type="button" style="float:left"onclick = "dateEntry()" >Enter </button>
 
