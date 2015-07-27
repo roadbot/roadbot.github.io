@@ -272,6 +272,11 @@ var averageHours = function(){
 	var fYear = Number(localStorage.getItem("startingYear"));
 	
 
+
+
+
+
+
 	if (fYear == 2014){
 		if (fMonth == 12){
 			fMonth = -1; 
@@ -313,34 +318,42 @@ var averageHours = function(){
 
 
 
-
-	console.log(totalMon + "totalmonth" );
-	console.log(year + "year");
-	console.log(fYear + "first year"); 
-
+	 
 
 
 	var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
  
 
-	var daysLeft = 30 * (fMonth + (totalMon - 1) - month) + (30 - today) + (30-fDay) ;
-	console.log(daysLeft + "daysLeft"); 
+	var daysLeft = 30 * (fMonth + (totalMon - 1) - month) + (30 - today) + fDay ;
+	
 	var averagePerDay = timeLeftInSec / daysLeft;
+	console.log(averagePerDay);
 
 	var avghours = Math.floor(averagePerDay / 3600);
 	var avgminutes = Math.round(Math.floor(averagePerDay / 60) - (avghours*60));
 	
-	if (avghours > -1) {
-		$('#averageHours').text(avghours + " hr " + avgminutes + " min " );
+	var avghoursWeek = Math.floor((averagePerDay *7) / 3600);
+	var avgminutesWeek = Math.floor(((averagePerDay *7) / 60) - (avghoursWeek*60));
+
+	if (today > fDay && month >= (fMonth + totalMon)){
+		$('#averageHours').text("You have passed your deadline. Please update your goals in the Settings.");
+		// alert("yara");
 	}
-	else{
-		$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+
+	else {
+		if (avghours > -1) {
+			$('#averageHours').text(avghours + " hr " + avgminutes + " min " );
+			$('#averageWeek').text( avghoursWeek + " hr " + avgminutesWeek + " min ");
+		}
+		else{
+			$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+		}
 	}
 }
 
-// var hoursleft = 0;
-// var minleft = 0;
-// var secleft = 0;
+
+
+
 
 var left = function(){
 
