@@ -1,0 +1,248 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+			<title>My Page</title> 
+
+			<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1"> 
+			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+			<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+			<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script src="FlipClock-master/compiled/flipclock.js"></script>
+			<script src="FlipClock-master/compiled/flipclock.min.js"></script>
+			<script src = "driving.js"> </script>
+
+			<!-- JQUERY NO CONFLICT OKAY YOU GOT THIS EMILY -->
+
+
+
+			<!--script type="text/javascript" src="prototype.js"></script>
+
+
+
+
+		    <script type="text/javascript" src="calendarview-1.2/javascripts/calendarview.js"></script>
+		    
+		    <script type="text/javascript">
+		    
+		      window.onload = function() {
+		        Calendar.setup({
+		          dateField     : 'date',
+		          parentElement : 'calendar'
+		        })
+		      }
+		    </script-->
+
+			<style>
+				#time {
+					PADDING-TOP: 50px;
+					width: 100%;
+				}
+			</style> 
+			<!--script>
+			      jq(document).bind("mobileinit", function() {
+				      jq.mobile.page.prototype.options.addBackBtn = true;
+				      jq.mobile.defaultPageTransition = 'none';
+				      jq.mobile.useFastClick  = false;
+				});
+			</script-->
+
+	</head> 
+
+	<body> 
+
+
+		<div data-role="page" id = "pageone" data-theme="b">
+
+			<div id="dimmer">
+				<div data-role="header">
+					<h1><font size="5">Timer </font></h1>
+				</div>
+
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
+
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()" onclick="refresh()">Your Stats</a></li>
+								<!--li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li-->
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
+
+
+							</ul>
+						</div><!-- /navbar -->
+					</div>
+			</div>
+
+			<div data-role="content">
+
+
+				<button  onclick = "timer()"  id = "trigger"><p id = "s">Start Driving!</p></button> 
+
+				<div class="clock" id = "time" >
+
+					<script type="text/javascript">
+						
+						 var clock = $('.clock').FlipClock({
+							autoStart: false
+						 });
+
+					</script>
+					
+				</div>
+
+				<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
+					
+				</div> 
+
+				<div align = "center" id = "beforeDriving" style = "PADDING-TOP: 25px"> 
+					Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.
+				</div>
+
+			</div><!-- /content -->
+			
+			<img src="roadbot.png" alt="RoadBot Logo" width="100%">
+
+		</div><!-- /page -->
+
+	<div data-role="page" id = "pagetwo">
+
+			<div data-role="header">
+					<h1><font size="5">Your Stats!</font></h1>
+			</div>
+
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
+
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()" class="ui-btn-active ui-state-persist" onclick="refresh()">Your Stats</a></li>
+								<!--li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li-->
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
+
+
+							</ul>
+						</div><!-- /navbar -->
+					</div>
+
+		<div data-role="content">
+
+				<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="4">Time You've Driven: <span id="lasttime"></span></font>
+				</div> 
+
+				<div id = "totalTime" align = "center" style="PADDING-TOP: 25px" > 
+
+				</div>
+
+				<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 10px" > <font size="4">Time Left: <span id="timeleft"></span></font>
+				</div>
+
+				<h3>Average time per DAY :</h3>
+				<div id = "averageHours" ></div>
+
+				<h3>Average time per WEEK :</h3>
+				<div id = "averageWeek" ></div> 
+
+				<h3>Add hours you've already driven to your Total Time:</H3>
+				<input type="text" name="name" id="addHours" value="" style="width: 100px;"  />
+
+				<button  onclick = "addTimeHr()">Add Time</button>
+
+				<button  onclick = "reset()">Reset All Data</button>
+			</div>
+
+			<img src="roadbot.png" alt="RoadBot Logo" width="100%">
+
+
+	</div> 
+
+	<!--div data-role="page" id = "pagethree">
+
+			<div data-role="header">
+					<h1><font size="5">Calendar</font></h1>
+			</div>
+
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
+
+
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()"  onclick="refresh()">Your Stats</a></li>
+								<li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li>
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
+
+							</ul>
+						</div>
+					</div>
+
+		<div data-role="content">
+			<h2>This calendar will show information about how much you have driven!</h2>
+				<div id="calendar"></div>
+	    		<div id="date">Select Date</div>
+
+<<<<<<< HEAD:indexbutton.html
+		</div>
+		
+		<img src="roadbot.png" alt="RoadBot Logo" width="100%">
+=======
+		</div-->
+
+
+
+>>>>>>> origin/master:index.html
+</div>
+
+
+	<div data-role="page" id = "pagefour">
+
+			<div data-role="header">
+					<h1><font size="5">Settings</font></h1>
+			</div>
+
+					<div data-role="footer" data-id="tabnav-footer" data-position="fixed">
+
+						<div data-role="navbar">
+							<ul>
+								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
+								<li><a href="#pagetwo" data-icon="info" onclick="update()"  onclick="refresh()">Your Stats</a></li>
+								<!--li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li-->
+								<li><a href="#pagefour" data-icon="gear" onclick="update()" class="ui-btn-active ui-state-persist"onclick="refresh()">Settings</a></li>
+
+							</ul>
+						</div><!-- /navbar -->
+					</div>
+
+			<div data-role="content">
+		
+				<div id = "date" >
+					<h2>Enter your First Day of Driving Practice:</h2>
+					<label for="basic">First Day Driving:</label>
+				    <input type="text" name="name" id="day" style="width: 100px;" value=""  />
+
+				    <label for="basic">First Month Started Driving:</label>
+				    <input type="text" name="name" id="month" value="" style="width: 100px;"  />
+
+				    <label for="basic" PADDING-BOTTOM = "100px">Year You Started Driving:</label>
+				    <input type="text" name="name" id="year" value="" style="width: 100px;"  />
+
+				    <label for="basic" PADDING-BOTTOM = "100px">Number of Months You Want To Practice Driving:</label>
+				    <input type="text" name="name" id="totalMonths" value="" style="width: 100px;"  />
+
+					<button type="button" style="float:left"onclick = "dateEntry()" >Enter </button>
+
+				</div> 
+
+				<button  onclick = "reset()">Reset All Data</button>
+
+				<img src="roadbot.png" alt="RoadBot Logo" width="100%">
+
+
+
+			</div> 
+
+	</div> <!-- page four -->
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 
-var jq = $.noConflict();
+// var js = $.noConflict();
 
-jq(document).ready(function() {
+$(document).ready(function() {
 	if(localStorage.getItem("totalMinutes") === null) {
 		localStorage.setItem("totalHours", 0);
 		localStorage.setItem("totalMinutes",0);
@@ -15,7 +15,7 @@ jq(document).ready(function() {
 });
 
 
-jq('<div id="__msg_overlay">').css({
+$('<div id="__msg_overlay">').css({
       "width" : "100%"
     , "height" : "100%"
     , "background" : "#000"
@@ -34,23 +34,23 @@ jq('<div id="__msg_overlay">').css({
 var timer = function(){
 
 
-	var text = jq('#s').text();
+	var text = $('#s').text();
 
 
 	if(text === "Start Driving!") {
 
-		jq('#s').text('Stop Driving!');
-		jq('#Result').text('');
+		$('#s').text('Stop Driving!');
+		$('#Result').text('');
 
 		clock.reset(00);
 		dim();
 		clock.start();
-		jq('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
+		$('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
 		
 	}
 	
 	else if(text === "Stop Driving!") {
-		jq('#s').text('Start Driving!');
+		$('#s').text('Start Driving!');
 
 		clock.stop();
 
@@ -62,10 +62,10 @@ var timer = function(){
 		var seconds = Number((getTime - minutes * 60) - (hours*3600) - 1);
 	
 
-		jq('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.");
+		$('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.");
 
 
-		jq('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
+		$('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
 		add(hours, minutes, seconds);
 		
@@ -169,17 +169,17 @@ var reset = function() {
 
 var dim = function() {
 
-	//jq(window).load(function(e){
-	  //jq('#trigger').on('click',function(e){
+	//$(window).load(function(e){
+	  //$('#trigger').on('click',function(e){
 		
-		jq("#dimmer").css("opacity",0.0).fadeIn(300, function () {            
-	     	jq('#red').css({'position':'aboslute','z-index':9999});
+		$("#dimmer").css("opacity",0.0).fadeIn(300, function () {            
+	     	$('#red').css({'position':'aboslute','z-index':9999});
 	     });
 
-		jq("#pageone").css('background-image', 'url("grey.jpg")');
+		$("#pageone").css('background-image', 'url("grey.jpg")');
 
-	// jq('#trigger').on('click', function () {
-	//     jq('#overlay, #overlay-back').fadeIn(500);
+	// $('#trigger').on('click', function () {
+	//     $('#overlay, #overlay-back').fadeIn(500);
 	// });
 
 
@@ -190,15 +190,15 @@ var dim = function() {
 }
 
 var normal = function(){
-	jq("#dimmer").css("opacity",1).fadeIn(300, function () {            
-	     	//jq('#red').css({'position':'aboslute','z-index':9999});
+	$("#dimmer").css("opacity",1).fadeIn(300, function () {            
+	     	//$('#red').css({'position':'aboslute','z-index':9999});
 	});
 
-	jq("#pageone").css('background-image', 'url("whites.jpg")');
+	$("#pageone").css('background-image', 'url("whites.jpg")');
 
 }
 
-var clock = jq('.your-clock').FlipClock({
+var clock = $('.your-clock').FlipClock({
 	//options
 	
 });
@@ -211,46 +211,46 @@ clock.start(function() {
 
 var dateEntry = function(){
 
-	var firstDay = (jq("#day").val());
-	var firstMonth = (jq("#month").val());
-	var totalMonth = (jq("#totalMonths").val());
-	var firstYear = (jq("#year").val());
+	var firstDay = ($("#day").val());
+	var firstMonth = ($("#month").val());
+	var totalMonth = ($("#totalMonths").val());
+	var firstYear = ($("#year").val());
 
 
-	if (jq("#month").val() == "January" || jq("#month").val() == "january"){
+	if ($("#month").val() == "January" || $("#month").val() == "january"){
 		firstMonth = 1; 
 	}
-	else if (jq("#month").val() == "February" || jq("#month").val() == "february" ){
+	else if ($("#month").val() == "February" || $("#month").val() == "february" ){
 		firstMonth = 2;
 	}
-	else if (jq("#month").val() == "March" || jq("#month").val() == "march"){
+	else if ($("#month").val() == "March" || $("#month").val() == "march"){
 		firstMonth = 3;
 	}
-	else if (jq("#month").val() == "April" || jq("#month").val() == "april"){
+	else if ($("#month").val() == "April" || $("#month").val() == "april"){
 		firstMonth = 4;
 	}
-	else if (jq("#month").val() == "May" || jq("#month").val() == "may"){
+	else if ($("#month").val() == "May" || $("#month").val() == "may"){
 		firstMonth = 5;
 	}
-	else if (jq("#month").val() == "June" || jq("#month").val() == "june"){
+	else if ($("#month").val() == "June" || $("#month").val() == "june"){
 		firstMonth = 6;
 	}
-	else if (jq("#month").val() == "July" || jq("#month").val() == "july"){
+	else if ($("#month").val() == "July" || $("#month").val() == "july"){
 		firstMonth = 7;
 	}
-	else if (jq("#month").val() == "August" || jq("#month").val() == "august"){
+	else if ($("#month").val() == "August" || $("#month").val() == "august"){
 		firstMonth = 8;
 	}
-	else if (jq("#month").val() == "September" || jq("#month").val() == "september"){
+	else if ($("#month").val() == "September" || $("#month").val() == "september"){
 		firstMonth = 9;
 	}
-	else if (jq("#month").val() == "October" || jq("#month").val() == "october"){
+	else if ($("#month").val() == "October" || $("#month").val() == "october"){
 		firstMonth = 10;
 	}
-	else if (jq("#month").val() == "November" || jq("#month").val() == "november"){
+	else if ($("#month").val() == "November" || $("#month").val() == "november"){
 		firstMonth = 11;
 	}
-	else if (jq("#month").val() == "December" || jq("#month").val() == "december"){
+	else if ($("#month").val() == "December" || $("#month").val() == "december"){
 		firstMonth = 12;
 	}
 
@@ -345,19 +345,19 @@ var averageHours = function(){
 	var avgminutesWeek = Math.floor(((averagePerDay *7) / 60) - (avghoursWeek*60));
 
 	if (today > fDay && month >= (fMonth + totalMon)){
-		jq('#averageHours').text("You have passed your deadline. Please update your goals in the Settings.");
-		jq('#averageWeek').text("You have passed your deadline. Please update your goals in the Settings.");
+		$('#averageHours').text("You have passed your deadline. Please update your goals in the Settings.");
+		$('#averageWeek').text("You have passed your deadline. Please update your goals in the Settings.");
 
 	}
 
 	else {
 		if (avghours > -1) {
-			jq('#averageHours').text(avghours + " hr " + avgminutes + " min " );
-			jq('#averageWeek').text( avghoursWeek + " hr " + avgminutesWeek + " min ");
+			$('#averageHours').text(avghours + " hr " + avgminutes + " min " );
+			$('#averageWeek').text( avghoursWeek + " hr " + avgminutesWeek + " min ");
 		}
 		else{
-			jq('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
-			jq('#averageWeek').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+			$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+			$('#averageWeek').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
 
 		}
 
@@ -366,7 +366,8 @@ var averageHours = function(){
 
 
 var addTimeHr = function(){
-	var addHours = Number((jq("#addHours").val()));
+
+	var addHours = Number(($("#addHours").val()));
 
 	//localStorage.setItem("addedHours", addHours);
 
@@ -374,8 +375,6 @@ var addTimeHr = function(){
 
 	addedHours = addHours + addedHours;
 	localStorage.setItem("totalHours", addedHours);
-
-	update();
 
 }
 
@@ -429,7 +428,7 @@ var left = function(){
 
 }
 
-jq(document).ready(function() {
+$(document).ready(function() {
 	if(localStorage.getItem("totalMinutes") === null) {
 		localStorage.setItem("totalHours", 0);
 		localStorage.setItem("totalMinutes",0);
