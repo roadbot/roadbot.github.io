@@ -345,21 +345,40 @@ var averageHours = function(){
 	var avgminutesWeek = Math.floor(((averagePerDay *7) / 60) - (avghoursWeek*60));
 
 	if (today > fDay && month >= (fMonth + totalMon)){
-		$('#averageHours').text("You have passed your deadline. Please update your goals in the Settings.");
-		// alert("yara");
+		jq('#averageHours').text("You have passed your deadline. Please update your goals in the Settings.");
+		jq('#averageWeek').text("You have passed your deadline. Please update your goals in the Settings.");
+
 	}
 
 	else {
 		if (avghours > -1) {
-			$('#averageHours').text(avghours + " hr " + avgminutes + " min " );
-			$('#averageWeek').text( avghoursWeek + " hr " + avgminutesWeek + " min ");
+			jq('#averageHours').text(avghours + " hr " + avgminutes + " min " );
+			jq('#averageWeek').text( avghoursWeek + " hr " + avgminutesWeek + " min ");
 		}
 		else{
-			$('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+			jq('#averageHours').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+			jq('#averageWeek').text("You have not entered any data yet. Go to the 'Set Start Date' tab."); 
+
 		}
 
 	}
 }
+
+
+var addTimeHr = function(){
+	var addHours = Number((jq("#addHours").val()));
+
+	//localStorage.setItem("addedHours", addHours);
+
+	var addedHours = Number(localStorage.getItem("totalHours"));
+
+	addedHours = addHours + addedHours;
+	localStorage.setItem("totalHours", addedHours);
+
+	update();
+
+}
+
 
 
 
@@ -410,7 +429,7 @@ var left = function(){
 
 }
 
-$(document).ready(function() {
+jq(document).ready(function() {
 	if(localStorage.getItem("totalMinutes") === null) {
 		localStorage.setItem("totalHours", 0);
 		localStorage.setItem("totalMinutes",0);
