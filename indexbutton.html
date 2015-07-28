@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-				<title>My Page</title> 
+			<title>My Page</title> 
 			<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
 			<meta name="viewport" content="width=device-width, initial-scale=1"> 
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
@@ -12,19 +12,46 @@
 			<script src="FlipClock-master/compiled/flipclock.min.js"></script>
 			<script src = "driving.js"> </script>
 
+			<!-- JQUERY NO CONFLICT OKAY YOU GOT THIS EMILY -->
+
+
+
+			<script type="text/javascript" src="prototype.js"></script>
+
+
+
+
+		    <script type="text/javascript" src="calendarview-1.2/javascripts/calendarview.js"></script>
+		    
+		    <script type="text/javascript">
+		    
+		      window.onload = function() {
+		        Calendar.setup({
+		          dateField     : 'date',
+		          parentElement : 'calendar'
+		        })
+		      }
+		    </script>
+
 			<style>
 				#time {
 					PADDING-TOP: 50px;
 					width: 100%;
 				}
 			</style> 
+			<!--script>
+			      jq(document).bind("mobileinit", function() {
+				      jq.mobile.page.prototype.options.addBackBtn = true;
+				      jq.mobile.defaultPageTransition = 'none';
+				      jq.mobile.useFastClick  = false;
+				});
+			</script-->
 
 
 	</head> 
 
 	<body> 
 
-	
 
 
 		<div data-role="page" id = "pageone">
@@ -38,7 +65,8 @@
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
 							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
 						</ul>
 					</div><!-- /navbar -->
 				</div><!-- /header -->
@@ -55,11 +83,13 @@
 
 					<script type="text/javascript">
 						
-						 var clock = $('.clock').FlipClock({
+						 var clock = jq('.clock').FlipClock({
 							autoStart: false
 						 });
 
 					</script>
+					
+
 
 				</div>
 
@@ -88,13 +118,14 @@
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
 							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Your Stats</a></li>
-							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Set Start Date</a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
 						</ul>
 					</div><!-- /navbar -->
-				</div><!-- /header -->
+		</div><!-- /header -->
 
 
-			<div data-role="content">
+		<div data-role="content">
 
 				<div id = "yourTotalTime" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Total Time: <span id="lasttime"></span></font>
 				</div> 
@@ -152,18 +183,120 @@
 				
 
 				<h3>Average hours a day left:</h3>
-				<div id = "averageHours" ></div> 
+				<div id = "averageHours" > </div> 
 
 				<button  onclick = "reset()">Reset All Data</button>
 			</div>
 
 	</div> 
 
+	<div data-role="page" id = "pagethree">
+
+		<div data-role="header">
+			<h1><font size="5">Calendar</font></h1>
+
+
+			<div data-role="navbar">
+						<ul>
+							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
+							<li><a href="#pagetwo" onclick="update()" onclick="refresh()" >Your Stats</a></li>
+							<li><a href="#pagethree" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Calendar</a></li>
+							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
+						</ul>
+			</div><!-- /navbar -->
+		</div>
+
+
+		<div data-role="content">
+			<h2>This calendar will show information about how much you have driven!</h2>
+				<div id="calendar"></div>
+	    		<div id="date">Select Date</div>
+
+		</div>
+
+<!-- 
+		<div class="calendar popup">
+		  <table>
+		    <thead>
+		      <tr>
+		        <td class="title" colspan="7">March 2007</td>
+		      </tr>
+		      <tr>
+		        <td class="button">«</td>
+		        <td class="button">‹</td>
+		        <td class="button" colspan="3">Today</td>
+		        <td class="button">›</td>
+		        <td class="button">»</td>
+		      </tr>
+		      <tr>
+		        <th class="weekend">S</th>
+		        <th>M</th>
+		        <th>T</th>
+		        <th>W</th>
+		        <th>T</th>
+		        <th>F</th>
+		        <th class="weekend">S</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr class="days">
+		        <td class="otherDay weekend">25</td>
+		        <td class="otherDay">26</td>
+		        <td class="otherDay">27</td>
+		        <td class="otherDay">28</td>
+		        <td>1</td>
+		        <td>2</td>
+		        <td class=" weekend">3</td>
+		      </tr>
+		      <tr class="days">
+		        <td class="weekend">4</td>
+		        <td>5</td>
+		        <td class="selected">6</td>
+		        <td>7</td>
+		        <td>8</td>
+		        <td>9</td>
+		        <td class="weekend">10</td>
+		      </tr>
+		      <tr class="days">
+		        <td class="weekend">11</td>
+		        <td class="today">12</td>
+		        <td>13</td>
+		        <td>14</td>
+		        <td>15</td>
+		        <td>16</td>
+		        <td class="weekend">17</td>
+		      </tr>
+		      <tr class="days">
+		        <td class="weekend">18</td>
+		        <td>19</td>
+		        <td>20</td>
+		        <td>21</td>
+		        <td>22</td>
+		        <td>23</td>
+		        <td class="weekend">24</td>
+		      </tr>
+		      <tr class="days">
+		        <td class="weekend">25</td>
+		        <td>26</td>
+		        <td>27</td>
+		        <td>28</td>
+		        <td>29</td>
+		        <td>30</td>
+		        <td class="weekend">31</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</div> -->
+
+	</div>
+
+
+
 
 	<div data-role="page" id = "pagefour">
 
 			<div data-role="header">
-				<h1><font size="5">Your Stats!</font></h1>
+				<h1><font size="5">Settings</font></h1>
 			
 
 
@@ -171,7 +304,8 @@
 					<ul>
 						<li><a href="#pageone" onclick="update()">Timer</a></li>
 						<li><a href="#pagetwo" onclick="update()">Your Stats</a></li>
-						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Set Start Date</a></li>
+						<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
+						<li><a href="#pagefour" onclick="update()" class="ui-btn-active ui-state-persist">Settings</a></li>
 					</ul>
 				</div><!-- /navbar -->
 			</div><!-- /header -->
