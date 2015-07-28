@@ -2,6 +2,7 @@
 <html> 
 	<head> 
 			<title>My Page</title> 
+
 			<link rel="stylesheet" href="FlipClock-master/compiled/flipclock.css">
 			<meta name="viewport" content="width=device-width, initial-scale=1"> 
 			<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
@@ -16,7 +17,7 @@
 
 
 
-			<script type="text/javascript" src="prototype.js"></script>
+			<!--script type="text/javascript" src="prototype.js"></script>
 
 
 
@@ -31,7 +32,7 @@
 		          parentElement : 'calendar'
 		        })
 		      }
-		    </script>
+		    </script-->
 
 			<style>
 				#time {
@@ -52,7 +53,7 @@
 	<body> 
 
 
-		<div data-role="page" id = "pageone">
+		<div data-role="page" id = "pageone" data-theme="b">
 
 			<div id="dimmer">
 				<div data-role="header">
@@ -65,7 +66,7 @@
 							<ul>
 								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()" class="ui-btn-active ui-state-persist">Timer</a></li>
 								<li><a href="#pagetwo" data-icon="info" onclick="update()" onclick="refresh()">Your Stats</a></li>
-								<li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li>
+								<!--li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li-->
 								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
 
 
@@ -83,7 +84,7 @@
 
 					<script type="text/javascript">
 						
-						 var clock = jq('.clock').FlipClock({
+						 var clock = $('.clock').FlipClock({
 							autoStart: false
 						 });
 
@@ -115,7 +116,7 @@
 							<ul>
 								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
 								<li><a href="#pagetwo" data-icon="info" onclick="update()" class="ui-btn-active ui-state-persist" onclick="refresh()">Your Stats</a></li>
-								<li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li>
+								<!--li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li-->
 								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
 
 
@@ -159,7 +160,7 @@
 
 	</div> 
 
-	<div data-role="page" id = "pagethree">
+	<!--div data-role="page" id = "pagethree">
 
 			<div data-role="header">
 					<h1><font size="5">Calendar</font></h1>
@@ -171,11 +172,11 @@
 							<ul>
 								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
 								<li><a href="#pagetwo" data-icon="info" onclick="update()"  onclick="refresh()">Your Stats</a></li>
-								<li><a href="#pagethree" data-icon="grid" onclick="update()" class="ui-btn-active ui-state-persist" onclick="refresh()">Calendar</a></li>
+								<li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li>
 								<li><a href="#pagefour" data-icon="gear" onclick="update()" onclick="refresh()">Settings</a></li>
 
 							</ul>
-						</div><!-- /navbar -->
+						</div>
 					</div>
 
 		<div data-role="content">
@@ -183,7 +184,7 @@
 				<div id="calendar"></div>
 	    		<div id="date">Select Date</div>
 
-		</div>
+		</div-->
 
 
 
@@ -202,7 +203,7 @@
 							<ul>
 								<li><a href="#pageone" data-icon="home" onclick="update()" onclick="refresh()">Timer</a></li>
 								<li><a href="#pagetwo" data-icon="info" onclick="update()"  onclick="refresh()">Your Stats</a></li>
-								<li><a href="#pagethree" data-icon="grid" onclick="update()"  onclick="refresh()">Calendar</a></li>
+								<!--li><a href="#pagethree" data-icon="grid" onclick="update()" onclick="refresh()">Calendar</a></li-->
 								<li><a href="#pagefour" data-icon="gear" onclick="update()" class="ui-btn-active ui-state-persist"onclick="refresh()">Settings</a></li>
 
 							</ul>
