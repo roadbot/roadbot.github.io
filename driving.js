@@ -366,6 +366,7 @@ var averageHours = function(){
 
 
 var addTimeHr = function(){
+
 	var addHours = Number(($("#addHours").val()));
 
 	//localStorage.setItem("addedHours", addHours);
@@ -374,8 +375,6 @@ var addTimeHr = function(){
 
 	addedHours = addHours + addedHours;
 	localStorage.setItem("totalHours", addedHours);
-
-	update();
 
 }
 
