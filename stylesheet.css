@@ -1,8 +1,4 @@
 
-/*#button1 , #button2 {
-display:inline-block;
-/**other codes**/
-/*}*/
 
 #dimmer {
     display: none;
@@ -32,11 +28,6 @@ display:inline-block;
     left: 10%;
 }
 
-.beforeDriving p{
-    color: #FF69B4;
-    font-size: 200%;
-}
-
 
 /*html, body {
     width  : 100%;
@@ -64,7 +55,7 @@ display:inline-block;
     z-index  : 10;
     display  : none;
 } 
->>>>>>> origin/master*/
+*/
 
 div.calendar
 {
@@ -147,3 +138,4 @@ div.calendar tr.days td.otherDay
 {
   color: #bbb;
 }
+

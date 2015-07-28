@@ -34,7 +34,6 @@ jq('<div id="__msg_overlay">').css({
 var timer = function(){
 
 
-
 	var text = jq('#s').text();
 
 
@@ -43,20 +42,17 @@ var timer = function(){
 		jq('#s').text('Stop Driving!');
 		jq('#Result').text('');
 
-		
 		clock.reset(00);
 		dim();
 		clock.start();
 		jq('#beforeDriving').text("Keep your eyes on the road! Remember, if you go out of the app before you are done driving, your time will not count. Press the Stop Driving button as soon as you are done!");
 		
-
 	}
 	
 	else if(text === "Stop Driving!") {
 		jq('#s').text('Start Driving!');
 
 		clock.stop();
-
 
 		normal();
 
@@ -65,17 +61,19 @@ var timer = function(){
 		var minutes = Number(Math.floor(getTime / 60) - (hours*60));
 		var seconds = Number((getTime - minutes * 60) - (hours*3600) - 1);
 	
+
 		jq('#beforeDriving').text("Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.");
+
 
 		jq('#Result').text("You just drove: " + hours + " hr " + minutes + " min " + seconds + " sec ");
 
-
 		add(hours, minutes, seconds);
+		
+		left();
 
 		var totalH = localStorage.getItem("totalHours");
 		var totalM = localStorage.getItem("totalMinutes");
 		var totalS = localStorage.getItem("totalSeconds");
-
 
 		var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
 	}
@@ -89,6 +87,7 @@ var refresh = function(){
 var update = function() {
 	document.getElementById("lasttime").textContent=+ localStorage.getItem("totalHours") + " hr " + localStorage.getItem("totalMinutes") + " min " + localStorage.getItem("totalSeconds") + " sec";
 	averageHours();
+	left();
 }
 
 var totalHr = 0;
@@ -155,7 +154,6 @@ var add = function (lastHour, lastMin, lastSec) {
 
 }
 
-
 var reset = function() {
 
 	localStorage.setItem("totalHours", 0);
@@ -163,6 +161,8 @@ var reset = function() {
 	localStorage.setItem("totalSeconds", 0);
 	localStorage.setItem("startingDay", 0);
 	localStorage.setItem("startingMonth", 0);
+	localStorage.setItem("startingYear", 0);
+	localStorage.setItem("totalMonths" , 0);
 
 	update();
 }
@@ -187,7 +187,6 @@ var dim = function() {
 	   //});
 	//});
 
-
 }
 
 var normal = function(){
@@ -210,12 +209,13 @@ clock.start(function() {
 		// this (optional) callback will fire each time the clock flips
 });
 
-
-
-
 var dateEntry = function(){
+
 	var firstDay = (jq("#day").val());
 	var firstMonth = (jq("#month").val());
+	var totalMonth = (jq("#totalMonths").val());
+	var firstYear = (jq("#year").val());
+
 
 	if (jq("#month").val() == "January" || jq("#month").val() == "january"){
 		firstMonth = 1; 
@@ -255,34 +255,84 @@ var dateEntry = function(){
 	}
 
 
-
 	localStorage.setItem("startingDay", firstDay);
 	localStorage.setItem("startingMonth", firstMonth);
+	localStorage.setItem("totalMonths", totalMonth);
+	localStorage.setItem("startingYear", firstYear);
 
 	averageHours();
 
 }
 
-
 var averageHours = function(){
 	var d = new Date();
 	var today = Number(d.getDate());
 	var month = Number(d.getMonth()+1);
+	var year = Number(d.getYear() +1900);
 
 	totalHr = Number(localStorage.getItem("totalHours"));
 	totalMin = Number(localStorage.getItem("totalMinutes"));
 	totalSec = Number(localStorage.getItem("totalSeconds"));
+	totalMon = Number(localStorage.getItem("totalMonths"));
 
 	var fMonth = Number(localStorage.getItem("startingMonth"));
 	var fDay = Number(localStorage.getItem("startingDay"));
-
+	var fYear = Number(localStorage.getItem("startingYear"));
 	
+
+	if (fYear == 2014){
+		if (fMonth == 12){
+			fMonth = -1; 
+		}
+		else if (fMonth == 11){
+			fMonth = -2; 
+		}
+		else if (fMonth == 10){
+			fMonth = -3; 
+		}
+		else if (fMonth == 9){
+			fMonth = -4; 
+		}
+		else if (fMonth == 8){
+			fMonth = -5; 
+		}
+		else if (fMonth == 7){
+			fMonth = -6; 
+		}
+		else if (fMonth == 6){
+			fMonth = -7; 
+		}
+		else if (fMonth == 5){
+			fMonth = -8; 
+		}
+		else if (fMonth == 4){
+			fMonth = -9; 
+		}
+		else if (fMonth == 3){
+			fMonth = -10; 
+		}
+		else if (fMonth == 2){
+			fMonth = -11; 
+		}
+		else if (fMonth == 1){
+			fMonth = -12; 
+		}
+	}
+
+
+
+
+	console.log(totalMon + "totalmonth" );
+	console.log(year + "year");
+	console.log(fYear + "first year"); 
+
+
 
 	var timeLeftInSec = 180000 - ((totalHr * 3600) + (totalMin * 60) + totalSec);
  
 
-	var daysLeft = 30 * (fMonth + 5 - month) + (30 - today) + (30-fDay) ;
-
+	var daysLeft = 30 * (fMonth + (totalMon - 1) - month) + (30 - today) + (30-fDay) ;
+	console.log(daysLeft + "daysLeft"); 
 	var averagePerDay = timeLeftInSec / daysLeft;
 
 	var avghours = Math.floor(averagePerDay / 3600);
@@ -296,3 +346,64 @@ var averageHours = function(){
 	}
 }
 
+// var hoursleft = 0;
+// var minleft = 0;
+// var secleft = 0;
+
+var left = function(){
+
+	var tHr = Number(localStorage.getItem("totalHours"));
+	var tMin = Number(localStorage.getItem("totalMinutes"));
+	var tSec = Number(localStorage.getItem("totalSeconds"));
+
+	// set at max time
+
+	hoursleft = 50;
+	minleft = 0;
+	secleft = 0;
+
+	// do the math with our totals
+
+	if(tSec > secleft) {
+		secleft = 60 - tSec;
+
+		// now move down minutes and subtract
+
+		minleft = 59;
+		hoursleft = 49;
+	}
+
+	if(minleft === 0) {
+
+		if(tMin === 0) {
+		}
+
+		else {
+			minleft = 60 - tMin;
+			hoursleft = hoursleft - 1;
+		}
+	}
+
+	else {
+		minleft = minleft - tMin;
+	}
+
+	hoursleft = hoursleft - tHr;
+
+	// print the time lift
+	document.getElementById("timeleft").textContent=+ hoursleft + " hr " + minleft + " min " + secleft + " sec ";
+
+}
+
+$(document).ready(function() {
+	if(localStorage.getItem("totalMinutes") === null) {
+		localStorage.setItem("totalHours", 0);
+		localStorage.setItem("totalMinutes",0);
+		localStorage.setItem("totalSeconds", 0);
+		localStorage.setItem("startingDay", 0);
+		localStorage.setItem("startingMonth", 0);
+	}
+	else {
+		update();
+	}
+});

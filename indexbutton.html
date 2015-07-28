@@ -47,15 +47,12 @@
 				});
 			</script-->
 
-
 	</head> 
 
 	<body> 
 
 
-
 		<div data-role="page" id = "pageone">
-
 
 			<div id="dimmer">
 				<div data-role="header">
@@ -67,12 +64,13 @@
 							<li><a href="#pagetwo" onclick="update()" onclick="refresh()">Your Stats</a></li>
 							<li><a href="#pagethree" onclick="update()" onclick="refresh()">Calendar</a></li>
 							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
+
+
 						</ul>
 					</div><!-- /navbar -->
 				</div><!-- /header -->
 
 			</div>
-
 
 			<div data-role="content">
 
@@ -93,27 +91,22 @@
 
 				</div>
 
-
-
 				<div id = "Result" align = "center" style="PADDING-TOP: 25px" >
 					
 				</div> 
 
-				
 				<div align = "center" id = "beforeDriving" style = "PADDING-TOP: 25px"> 
 					Press the Start Driving button just before you get behind the wheel! The screen will get darker, and the timer will begin. If you go out of the app at any time, the timer will stop and your time will not be counted.
 				</div>
 
-				
 			</div><!-- /content -->
 
 		</div><!-- /page -->
 
 	<div data-role="page" id = "pagetwo">
 
-		<div data-role="header">
-					<h1><font size="5">Your Stats!</font></h1>
-
+			<div data-role="header">
+				<h1><font size="5">Your Stats!</font></h1>
 					<div data-role="navbar">
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
@@ -122,7 +115,7 @@
 							<li><a href="#pagefour" onclick="update()" onclick="refresh()">Settings</a></li>
 						</ul>
 					</div><!-- /navbar -->
-		</div><!-- /header -->
+			</div><!-- /header -->
 
 
 		<div data-role="content">
@@ -139,48 +132,8 @@
 
 				</div>
 
-				<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: </font>
+				<div id = "yourTimeLeft" align = "center" style="PADDING-TOP: 25px" > <font size="6">Your Time Left: <span id="timeleft"></span></font>
 				</div>
-
-				<div id = "timeLeft" align = "center" style="PADDING-TOP: 25px" "PADDING-BOTTOM: 100px"> 
-					 <!--script>  
-						// var hours = localStorage.getItem("total")
-						// var hoursleft = 0;
-						// var minleft = 0;
-						// var secleft = 0;
-						// if(hours == 0 && minutes == 0 && seconds == 0){
-						// 	hoursleft = 50;
-						// 	minleft = 0;
-						// 	secleft = 0;
-						// }
-						// else if (minutes == 0 && seconds == 0){
-						// 	hoursleft = 50 - hours;
-						// 	minleft = 0;
-						// 	secleft = 0;
-							
-						// }
-						// else if(seconds == 0){
-						// 	hoursleft = 49 - hours;
-						// 	minleft = 60 - minutes;
-						// 	secleft = 0;
-						// }
-						// else if(hours != 0 && minutes != 0 && seconds != 0){
-						// 	hoursleft = 49 - hours;
-						// 	minleft = 59 - minutes;
-						// 	secleft = 60 - seconds;
-						// }
-
-
-						// document.getElementById('timeLeft').innerHTML =hoursleft + ' hr ' + minleft + ' min ' + secleft + ' sec ' ; 
-
-
-
-					</script-->
-				</div>
-
-
-
-				
 
 				<h3>Average hours a day left:</h3>
 				<div id = "averageHours" > </div> 
@@ -195,7 +148,6 @@
 		<div data-role="header">
 			<h1><font size="5">Calendar</font></h1>
 
-
 			<div data-role="navbar">
 						<ul>
 							<li><a href="#pageone" onclick="update()" onclick="refresh()" >Timer</a></li>
@@ -207,6 +159,7 @@
 		</div>
 
 
+
 		<div data-role="content">
 			<h2>This calendar will show information about how much you have driven!</h2>
 				<div id="calendar"></div>
@@ -214,90 +167,15 @@
 
 		</div>
 
-<!-- 
-		<div class="calendar popup">
-		  <table>
-		    <thead>
-		      <tr>
-		        <td class="title" colspan="7">March 2007</td>
-		      </tr>
-		      <tr>
-		        <td class="button">«</td>
-		        <td class="button">‹</td>
-		        <td class="button" colspan="3">Today</td>
-		        <td class="button">›</td>
-		        <td class="button">»</td>
-		      </tr>
-		      <tr>
-		        <th class="weekend">S</th>
-		        <th>M</th>
-		        <th>T</th>
-		        <th>W</th>
-		        <th>T</th>
-		        <th>F</th>
-		        <th class="weekend">S</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-		      <tr class="days">
-		        <td class="otherDay weekend">25</td>
-		        <td class="otherDay">26</td>
-		        <td class="otherDay">27</td>
-		        <td class="otherDay">28</td>
-		        <td>1</td>
-		        <td>2</td>
-		        <td class=" weekend">3</td>
-		      </tr>
-		      <tr class="days">
-		        <td class="weekend">4</td>
-		        <td>5</td>
-		        <td class="selected">6</td>
-		        <td>7</td>
-		        <td>8</td>
-		        <td>9</td>
-		        <td class="weekend">10</td>
-		      </tr>
-		      <tr class="days">
-		        <td class="weekend">11</td>
-		        <td class="today">12</td>
-		        <td>13</td>
-		        <td>14</td>
-		        <td>15</td>
-		        <td>16</td>
-		        <td class="weekend">17</td>
-		      </tr>
-		      <tr class="days">
-		        <td class="weekend">18</td>
-		        <td>19</td>
-		        <td>20</td>
-		        <td>21</td>
-		        <td>22</td>
-		        <td>23</td>
-		        <td class="weekend">24</td>
-		      </tr>
-		      <tr class="days">
-		        <td class="weekend">25</td>
-		        <td>26</td>
-		        <td>27</td>
-		        <td>28</td>
-		        <td>29</td>
-		        <td>30</td>
-		        <td class="weekend">31</td>
-		      </tr>
-		    </tbody>
-		  </table>
-		</div> -->
+
 
 	</div>
-
-
 
 
 	<div data-role="page" id = "pagefour">
 
 			<div data-role="header">
 				<h1><font size="5">Settings</font></h1>
-			
 
 
 				<div data-role="navbar">
@@ -310,22 +188,25 @@
 				</div><!-- /navbar -->
 			</div><!-- /header -->
 
-
 			<div data-role="content">
 		
 				<div id = "date" >
-					<h2>Enter your First Day of Driving Practice</h2>
+					<h2>Enter your First Day of Driving Practice:</h2>
 					<label for="basic">First Day Driving:</label>
 				    <input type="text" name="name" id="day" style="width: 100px;" value=""  />
 
 				    <label for="basic">First Month Started Driving:</label>
 				    <input type="text" name="name" id="month" value="" style="width: 100px;"  />
 
+				    <label for="basic" PADDING-BOTTOM = "100px">Year You Started Driving:</label>
+				    <input type="text" name="name" id="year" value="" style="width: 100px;"  />
+
+				    <label for="basic" PADDING-BOTTOM = "100px">Number of Months You Want To Practice Driving:</label>
+				    <input type="text" name="name" id="totalMonths" value="" style="width: 100px;"  />
 
 
-						  <!-- First Day Driving: <input type="text" name="day" id = "firstDay" style="width: 100px;" ><br> -->
-						  <!-- First Month Started Driving: <input type="text" name="month" id = "firstMonth" style="width: 100px;" ><br> -->
-						  <button  onclick = "dateEntry()">Enter</button>
+
+					<button type="button" style="float:left"onclick = "dateEntry()" >Enter </button>
 
 				</div> 
 
@@ -334,14 +215,6 @@
 			</div> 
 
 	</div> <!-- page four -->
-
-
-
-
-
-
-
-
 
 </body>
 </html>
